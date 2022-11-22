@@ -15,6 +15,7 @@ import {
   Dashboard,
   ModulSaya,
   Profil,
+  Katasandi,
 } from "./../Pages";
 
 const AppRouter = () => {
@@ -38,7 +39,10 @@ const AppRouter = () => {
         <Route path="" element={<Dashboard />} />
         <Route path="modul-saya" element={<ModulSaya />} />
       </Route>
-      <Route path="/profil" element={<Profil />} />
+      <Route path="/profil">
+        <Route path="" element={<Profil />} />
+        <Route path="katasandi" element={<Katasandi />} />
+      </Route>
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
