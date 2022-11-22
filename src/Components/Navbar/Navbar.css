@@ -1,9 +1,9 @@
 /* HEADER NAVBAR */
-nav {
+.nav-header {
   background-color: #c7a488;
 }
 
-.nav-item .nav-link {
+.nav-item .nav-text {
   color: #fff;
   padding: 10px 16px;
 }

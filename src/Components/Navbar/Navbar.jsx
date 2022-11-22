@@ -14,7 +14,7 @@ const Navbar = () => {
   };
   return (
     <header className="sticky-top">
-      <nav className="navbar navbar-expand-lg p-2">
+      <nav className="navbar navbar-expand-lg p-2 nav-header">
         <div className="container">
           <Link to="/" className="navbar-brand">
             <img

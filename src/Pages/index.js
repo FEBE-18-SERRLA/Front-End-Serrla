@@ -6,3 +6,4 @@ export { default as Modul } from "./05-ModulPage/Modul";
 export { default as DetailModul } from "./06-DetailModulPage/DetailModul";
 export { default as About } from "./07-AboutPage/About";
 export { default as Contact } from "./08-ContactPage/Contact";
+export { default as Dashboard } from "./09-Dashboard/Dashboard";
