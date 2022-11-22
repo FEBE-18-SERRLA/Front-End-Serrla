@@ -6,12 +6,26 @@ import AppRouter from "./Routes/AppRoute";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 
+import { useState } from "react";
+import { useLocation } from "react-router-dom";
+
 function App() {
+  const [show, setShow] = useState(false);
+  const location = useLocation();
+
   return (
     <>
-      <Navbar />
+      {location.pathname !== "/sign-in" &&
+        location.pathname !== "/sign-up" &&
+        location.pathname !== "/unauthorized" && (
+          <Navbar show={show} setShow={setShow} />
+        )}
       <AppRouter />
-      <Footer />
+      {location.pathname !== "/sign-in" &&
+        location.pathname !== "/sign-up" &&
+        location.pathname !== "/unauthorized" && (
+          <Footer show={show} setShow={setShow} />
+        )}
     </>
   );
 }
