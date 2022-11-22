@@ -41,17 +41,17 @@ const Navbar = () => {
                 <ul className="navbar-nav mx-auto">
                   <li className="nav-item h5 m-0">
                     <Link to="/" className="nav-link nav-text fw-normal">
-                      Home
+                      Beranda
                     </Link>
                   </li>
                   <li className="nav-item h5 m-0">
                     <Link to="/about" className="nav-link nav-text fw-normal">
-                      About
+                      Tentang
                     </Link>
                   </li>
                   <li className="nav-item h5 m-0">
                     <Link to="/contact" className="nav-link nav-text fw-normal">
-                      Contact
+                      Kontak
                     </Link>
                   </li>
                 </ul>
@@ -73,7 +73,7 @@ const Navbar = () => {
                 <ul className="navbar-nav mx-auto">
                   <li className="nav-item h5 m-0">
                     <Link to="/" className="nav-link nav-text fw-normal">
-                      Home
+                      Beranda
                     </Link>
                   </li>
                   <li className="nav-item h5 m-0">
