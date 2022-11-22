@@ -1,0 +1,49 @@
+.section-signin {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.section-signin .container-signin {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.container-signin .border {
+  height: 90%;
+  width: 90%;
+  margin: auto;
+}
+
+.border .left-signin {
+  background-color: #e9d0ba;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.border .right-signin {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-sign-in {
+  background-color: #005386;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
+  font-size: 20px;
+  font-weight: medium;
+}
+
+.mx-3 .btn-sign-in:hover {
+  background-color: #00416a;
+  color: white;
+}
