@@ -11,6 +11,7 @@ import {
   Modul,
   DetailModul,
   About,
+  Contact,
 } from "./../Pages";
 
 const AppRouter = () => {
@@ -31,6 +32,7 @@ const AppRouter = () => {
         <Route path="detail-modul/:id" element={<DetailModul />} />
       </Route>
       <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   );
 };

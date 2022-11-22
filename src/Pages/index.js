@@ -5,3 +5,4 @@ export { default as Home } from "./04-HomePage/Home";
 export { default as Modul } from "./05-ModulPage/Modul";
 export { default as DetailModul } from "./06-DetailModulPage/DetailModul";
 export { default as About } from "./07-AboutPage/About";
+export { default as Contact } from "./08-ContactPage/Contact";
