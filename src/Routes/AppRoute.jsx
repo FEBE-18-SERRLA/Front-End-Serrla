@@ -12,6 +12,7 @@ import {
   DetailModul,
   About,
   Contact,
+  Dashboard,
 } from "./../Pages";
 
 const AppRouter = () => {
@@ -30,6 +31,10 @@ const AppRouter = () => {
       <Route path="/modul">
         <Route path="" element={<Modul />} />
         <Route path="detail-modul/:id" element={<DetailModul />} />
+      </Route>
+      <Route path="/dashboard">
+        <Route path="" element={<Dashboard />} />
+        <Route path="modul-saya" element={<Dashboard />} />
       </Route>
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
