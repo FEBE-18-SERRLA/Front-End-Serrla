@@ -1,0 +1,62 @@
+/* CAROUSEL SECTION */
+.carousel-item img {
+  height: 400px;
+  width: 90%;
+}
+
+/* LIST CLASS SECTION */
+.list-class-section {
+  height: 700px;
+  position: relative;
+}
+
+.list-class-text {
+  margin: 100px 0 50px;
+}
+
+/* INSTRUKTUR SECTION */
+.instructur-section {
+  height: 700px;
+  background-color: #e9d0ba;
+}
+
+.instructur-text {
+  margin: 100px 0 50px;
+}
+
+/*VECTOR */
+.vector1 {
+  position: absolute;
+  z-index: -1;
+  top: 50px;
+  left: 0;
+  width: 250px;
+}
+
+.vector7 {
+  position: absolute;
+  z-index: -1;
+  top: 250px;
+  right: 0;
+  width: 550px;
+  height: 450px;
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-item img {
+    height: 300px;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .carousel-item img {
+    height: 200px;
+    width: 95%;
+  }
+
+  .vector1,
+  .vector2 {
+    display: none;
+  }
+}
