@@ -1,12 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { ImHome } from "react-icons/im";
-import { IoIosFolderOpen } from "react-icons/io";
 
-import { PlaceholderUser, Gambar6 } from "../../Assets";
+import { Gambar6 } from "../../Assets";
 import CardModulDashborad from "Components/CardModulDashboard/CardModulDashborad";
-
-import "./Dashboard.css";
+import AsideDashboard from "Components/AsideDashboard/AsideDashboard";
 
 const Dashboard = () => {
   return (
@@ -18,42 +14,7 @@ const Dashboard = () => {
               className="col-3 rounded shadow"
               style={{ backgroundColor: "#FDFAF3" }}
             >
-              <aside>
-                <div className="container">
-                  <div className="container text-center my-4">
-                    <img
-                      src={PlaceholderUser}
-                      alt="placeholder user"
-                      className="rounded-circle"
-                      width="80"
-                    />
-                    <p className="fw-normal pt-3">Nama User</p>
-                  </div>
-                  <div className="container my-5">
-                    <nav>
-                      <ul className="flex-column text-center p-0">
-                        <li className="nav-item nav-item-dashboard">
-                          <Link
-                            to=""
-                            className="nav-link active fw-semibold"
-                            aria-current="page"
-                          >
-                            <ImHome /> Dashboard
-                          </Link>
-                        </li>
-                        <li className="nav-item nav-item-dashboard">
-                          <Link
-                            to="/dashboard/modul-saya"
-                            className="nav-link fw-semibold"
-                          >
-                            <IoIosFolderOpen /> Modul Saya
-                          </Link>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                </div>
-              </aside>
+              <AsideDashboard />
             </div>
             <div className="col-9">
               <section>
@@ -69,8 +30,16 @@ const Dashboard = () => {
                   </article>
                   <article className="container mt-5">
                     <h4 className="fw-bold">Lanjutkan Modul</h4>
-                    <CardModulDashborad gambar={Gambar6} namaModul="Modul 1" />
-                    <CardModulDashborad gambar={Gambar6} namaModul="Modul 2" />
+                    <CardModulDashborad
+                      gambar={Gambar6}
+                      namaModul="Modul 1"
+                      namaButton="Lanjutkan Belajar"
+                    />
+                    <CardModulDashborad
+                      gambar={Gambar6}
+                      namaModul="Modul 2"
+                      namaButton="Lanjutkan Belajar"
+                    />
                   </article>
                 </div>
               </section>
