@@ -1,0 +1,64 @@
+/* SECTION 1 */
+.section-1 {
+  background-color: #f2f2f2;
+}
+
+/* SECTION 2 */
+.section-2 {
+  z-index: -4;
+}
+
+.container-row {
+  z-index: -3;
+}
+
+.left {
+  background-color: #e8d0ba;
+  position: relative;
+  z-index: -2;
+}
+
+.right {
+  background-color: #c7a488;
+  position: relative;
+  color: #fff;
+  z-index: -2;
+}
+
+/* SECTION 3 */
+.section-3 {
+  background-color: #f2f2f2;
+  position: relative;
+}
+
+/* VECTOR */
+.vector1 {
+  position: absolute;
+  top: 40px;
+  left: 380px;
+  z-index: -1;
+}
+
+.vector2 {
+  position: absolute;
+  top: 40px;
+  left: 330px;
+  z-index: -1;
+}
+
+@media screen and (max-width: 769px) {
+  .col4 {
+    order: 1;
+  }
+
+  .col8 {
+    order: 2;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .vector1,
+  .vector2 {
+    display: none;
+  }
+}
