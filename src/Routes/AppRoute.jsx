@@ -3,7 +3,14 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 
 // Pages
-import { LandingPage, SignUp, SignIn, Home, Modul } from "./../Pages";
+import {
+  LandingPage,
+  SignUp,
+  SignIn,
+  Home,
+  Modul,
+  DetailModul,
+} from "./../Pages";
 
 const AppRouter = () => {
   const isLogin = localStorage.getItem("user");
@@ -18,7 +25,10 @@ const AppRouter = () => {
       )}
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/sign-in" element={<SignIn />} />
-      <Route path="/modul" element={<Modul />} />
+      <Route path="/modul">
+        <Route path="" element={<Modul />} />
+        <Route path="detail-modul/:id" element={<DetailModul />} />
+      </Route>
     </Routes>
   );
 };
