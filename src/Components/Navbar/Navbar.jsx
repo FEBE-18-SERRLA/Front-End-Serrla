@@ -111,7 +111,7 @@ const Navbar = () => {
                     </Link>
                     <ul className="dropdown-menu text-small">
                       <li>
-                        <Link to="/" className="dropdown-item">
+                        <Link to="/profil" className="dropdown-item">
                           Lihat Profil
                         </Link>
                       </li>

@@ -8,3 +8,4 @@ export { default as About } from "./07-AboutPage/About";
 export { default as Contact } from "./08-ContactPage/Contact";
 export { default as Dashboard } from "./09-Dashboard/Dashboard";
 export { default as ModulSaya } from "./10-ModulSaya/ModulSaya";
+export { default as Profil } from "./11-Profil/Profil";

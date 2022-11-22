@@ -19,12 +19,12 @@ const ModulSaya = () => {
             </div>
             <div className="col-9">
               <section>
-                <article class="container">
-                  <h4 class="fw-bold modul-heading">Modul Saya</h4>
-                  <nav class="mt-3">
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <article className="container">
+                  <h4 className="fw-bold modul-heading">Modul Saya</h4>
+                  <nav className="mt-3">
+                    <div className="nav nav-tabs" id="nav-tab" role="tablist">
                       <button
-                        class="nav-link active text-black"
+                        className="nav-link active text-black"
                         id="nav-semua-modul-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#nav-semua-modul"
@@ -36,7 +36,7 @@ const ModulSaya = () => {
                         Semua Modul
                       </button>
                       <button
-                        class="nav-link text-black"
+                        className="nav-link text-black"
                         id="nav-sedang-dipelajari-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#nav-sedang-dipelajari"
@@ -48,7 +48,7 @@ const ModulSaya = () => {
                         Sedang Dipelajari
                       </button>
                       <button
-                        class="nav-link text-black"
+                        className="nav-link text-black"
                         id="nav-selesai-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#nav-selesai"
