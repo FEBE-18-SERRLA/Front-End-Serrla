@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const CardModulDashborad = ({ gambar, namaModul, id }) => {
+const CardModulDashborad = ({ gambar, namaModul, id, namaButton }) => {
   return (
     <>
       <div
@@ -19,7 +19,7 @@ const CardModulDashborad = ({ gambar, namaModul, id }) => {
             className="btn"
             style={{ backgroundColor: "#005387", color: "#fff" }}
           >
-            Lanjutkan Belajar
+            {namaButton}
           </Link>
         </div>
       </div>
@@ -30,6 +30,8 @@ const CardModulDashborad = ({ gambar, namaModul, id }) => {
 CardModulDashborad.propTypes = {
   gambar: PropTypes.string.isRequired,
   namaModul: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  namaButton: PropTypes.string.isRequired,
 };
 
 export default CardModulDashborad;

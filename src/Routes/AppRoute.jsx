@@ -13,6 +13,7 @@ import {
   About,
   Contact,
   Dashboard,
+  ModulSaya,
 } from "./../Pages";
 
 const AppRouter = () => {
@@ -34,7 +35,7 @@ const AppRouter = () => {
       </Route>
       <Route path="/dashboard">
         <Route path="" element={<Dashboard />} />
-        <Route path="modul-saya" element={<Dashboard />} />
+        <Route path="modul-saya" element={<ModulSaya />} />
       </Route>
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
