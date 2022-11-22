@@ -1,4 +1,4 @@
-import { SIGN_UP } from "../Actions/userActions";
+import { SIGN_UP, SIGN_IN } from "../Actions/userActions";
 
 const initialState = {
   user: [],
@@ -11,6 +11,13 @@ const userReducer = (state = initialState, action) => {
         ...state,
         user: action.user,
       };
+
+    case SIGN_IN:
+      return {
+        ...state,
+        user: action.user,
+      };
+
     default:
       return state;
   }
