@@ -6,21 +6,25 @@ const CardModulDashborad = ({ gambar, namaModul, id, namaButton }) => {
   return (
     <>
       <div
-        className="d-flex p-4 rounded shadow justify-content-between my-3"
+        className="row p-4 rounded shadow justify-content-between my-3 gy-2"
         style={{ backgroundColor: "#FDFAF3" }}
       >
-        <div className="d-flex justify-content-between">
-          <img src={gambar} alt="gambar modul" width="70" />
-          <p className="px-3 my-auto">{namaModul}</p>
+        <div className="col-md-9">
+          <div className="d-flex">
+            <img src={gambar} alt="gambar modul" width="70" height="70" />
+            <p className="px-3 my-auto">{namaModul}</p>
+          </div>
         </div>
-        <div className="button">
-          <Link
-            to={`/modul/detail-modul/${id}`}
-            className="btn"
-            style={{ backgroundColor: "#005387", color: "#fff" }}
-          >
-            {namaButton}
-          </Link>
+        <div className="col-md-3">
+          <div className="button text-end">
+            <Link
+              to={`/modul/detail-modul/${id}`}
+              className="btn w-100"
+              style={{ backgroundColor: "#005387", color: "#fff" }}
+            >
+              {namaButton}
+            </Link>
+          </div>
         </div>
       </div>
     </>

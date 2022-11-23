@@ -91,7 +91,7 @@ const Navbar = () => {
                   </li>
                 </ul>
                 <ul className="navbar-nav">
-                  <div className="dropdown text-end">
+                  <div className="dropdown">
                     <Link
                       to=""
                       className="d-block link-dark text-decoration-none dropdown-toggle"

@@ -67,7 +67,6 @@ export const getFilteredModul = (category) => {
     const filterModulData = await axios.get(
       `https://634e1a17b8ce95a1dd7e9aa0.mockapi.io/moduls?category=${params}`
     );
-    console.log(filterModulData);
     dispatch(filterModul(filterModulData.data));
   };
 };

@@ -5,46 +5,46 @@ const Contact = () => {
   return (
     <>
       <main>
-        <h2 class={` ${module["heading"]} text-center p-5 fw-semibold`}>
-          Contact
+        <h2 className={` ${module["heading"]} text-center p-5 fw-semibold`}>
+          Kontak
         </h2>
-        <section class="contact-us">
+        <section className="contact-us">
           <div
-            class={`${module["container-contact"]} container my-5 rounded-5`}
+            className={`${module["container-contact"]} container my-5 rounded-5`}
           >
-            <div class="row p-5">
-              <div class="col-md text-center">
-                <h4 class="fw-semibold">
-                  <i class="bi bi-geo-alt"></i> Alamat{" "}
+            <div className="row p-5">
+              <div className="col-md text-center">
+                <h4 className="fw-semibold">
+                  <i className="bi bi-geo-alt"></i> Alamat{" "}
                 </h4>
-                <p class="fw-light">
+                <p className="fw-light">
                   Jl. Durian Raya No. 30A, RT. 4/RW. 4 Jagakarsa, Jakarta
                   Selatan, Daerah Khusus Ibukota Jakarta 12620
                 </p>
               </div>
-              <div class="col-md text-center">
-                <h4 class="fw-semibold">
-                  <i class="bi bi-telephone"></i> Telepon
+              <div className="col-md text-center">
+                <h4 className="fw-semibold">
+                  <i className="bi bi-telephone"></i> Telepon
                 </h4>
-                <p class="fw-light">(021) 29517702</p>
+                <p className="fw-light">(021) 29517702</p>
               </div>
-              <div class="col-md text-center">
-                <h4 class="fw-semibold">
-                  <i class="bi bi-envelope"></i> Email
+              <div className="col-md text-center">
+                <h4 className="fw-semibold">
+                  <i className="bi bi-envelope"></i> Email
                 </h4>
-                <p class="fw-light">info@serrla.com</p>
+                <p className="fw-light">info@serrla.com</p>
               </div>
             </div>
-            <div class={module["mapouter"]}>
-              <div class={module["gmap_canvas"]}>
+            <div className={module["mapouter"]}>
+              <div className={module["gmap_canvas"]}>
                 <iframe
                   title="map"
-                  class={module["gmap_iframe"]}
+                  className={module["gmap_iframe"]}
                   width="100%"
-                  frameborder="0"
+                  frameBorder="0"
                   scrolling="no"
-                  marginheight="0"
-                  marginwidth="0"
+                  marginHeight="0"
+                  marginWidth="0"
                   src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Jl. Durian Raya No. 30A, RT. 4/RW. 4 Jagakarsa, Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12620  &amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                 ></iframe>
                 <a href="https://piratebay-proxys.com/">Pirate proxy</a>

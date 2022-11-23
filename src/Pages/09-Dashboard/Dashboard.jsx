@@ -4,6 +4,8 @@ import { Gambar6 } from "../../Assets";
 import CardModulDashborad from "Components/CardModulDashboard/CardModulDashborad";
 import AsideDashboard from "Components/AsideDashboard/AsideDashboard";
 
+import "./Dashboard.css";
+
 const Dashboard = () => {
   return (
     <>
@@ -11,7 +13,7 @@ const Dashboard = () => {
         <div className="container mb-5">
           <div className="row my-4 gx-5">
             <div
-              className="col-3 rounded shadow"
+              className="col-3 rounded shadow p-0"
               style={{ backgroundColor: "#FDFAF3" }}
             >
               <AsideDashboard />
@@ -19,17 +21,18 @@ const Dashboard = () => {
             <div className="col-9">
               <section>
                 <div className="container">
-                  <article
-                    className="container d-flex align-items-center rounded"
-                    style={{ backgroundColor: "#FDF5E8", height: "200px" }}
-                  >
-                    <div className="container px-5">
-                      <h1 className="fw-bold">Hallo, Nama user!</h1>
-                      <p>Semoga aktivitas belajarmu menyenangkan.</p>
+                  <article className="container d-flex align-items-center rounded container-header-dashboard">
+                    <div className="container px-sm-5">
+                      <h1 className="fw-bold text-header-dashboard">
+                        Hallo, Nama user!
+                      </h1>
+                      <p className="text-content-dashboard">
+                        Semoga aktivitas belajarmu menyenangkan.
+                      </p>
                     </div>
                   </article>
                   <article className="container mt-5">
-                    <h4 className="fw-bold">Lanjutkan Modul</h4>
+                    <h4 className="fw-bold title-dashboard">Lanjutkan Modul</h4>
                     <CardModulDashborad
                       gambar={Gambar6}
                       namaModul="Modul 1"

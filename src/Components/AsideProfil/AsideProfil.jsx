@@ -11,12 +11,14 @@ const AsideProfil = () => {
             <ul className="flex-column p-0">
               <li className="nav-item nav-item-dashboard">
                 <Link to="/profil" className="nav-link active fw-semibold">
-                  <CgProfile /> Profil
+                  <CgProfile />
+                  <span className="text-dashboard ps-2">Profil</span>
                 </Link>
               </li>
               <li className="nav-item nav-item-dashboard">
                 <Link to="/profil/katasandi" className="nav-link fw-semibold">
-                  <MdVpnKey /> Katasandi
+                  <MdVpnKey />
+                  <span className="text-dashboard ps-2">Katasandi</span>
                 </Link>
               </li>
             </ul>

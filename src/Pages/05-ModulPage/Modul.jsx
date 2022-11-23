@@ -40,7 +40,7 @@ const Modul = () => {
       <main>
         <section className="search-section">
           <h1 className="text-center fw-semibold">Modul Yang Tersedia</h1>
-          <p className="text-center">
+          <p className="text-center  container">
             Gali pengetahuan seni dengan mengikuti modul yang tersedia sesuai
             dengan minat dan bakatmu!
           </p>
