@@ -1,5 +1,7 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
+import { RiLogoutBoxRLine } from "react-icons/ri";
 import { Logo, PlaceholderUser } from "../../Assets";
 import "./Navbar.css";
 
@@ -40,31 +42,58 @@ const Navbar = () => {
               <>
                 <ul className="navbar-nav mx-auto">
                   <li className="nav-item h5 m-0">
-                    <Link to="/" className="nav-link nav-text fw-normal">
+                    <NavLink
+                      to="/"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "active nav-link nav-text fw-normal"
+                          : "nav-link nav-text fw-normal"
+                      }
+                    >
                       Beranda
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item h5 m-0">
-                    <Link to="/about" className="nav-link nav-text fw-normal">
+                    <NavLink
+                      to="/about"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "active nav-link nav-text fw-normal"
+                          : "nav-link nav-text fw-normal"
+                      }
+                    >
                       Tentang
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item h5 m-0">
-                    <Link to="/contact" className="nav-link nav-text fw-normal">
+                    <NavLink
+                      to="/contact"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "active nav-link nav-text fw-normal"
+                          : "nav-link nav-text fw-normal"
+                      }
+                    >
                       Kontak
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
                 <ul className="navbar-nav">
                   <li className="nav-item h5 me-3">
-                    <Link to="/sign-in" className="nav-link sign-in fw-normal">
+                    <NavLink
+                      to="/sign-in"
+                      className="nav-link sign-in fw-normal"
+                    >
                       Masuk
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item h5">
-                    <Link to="/sign-up" className="nav-link sign-up fw-normal">
+                    <NavLink
+                      to="/sign-up"
+                      className="nav-link sign-up fw-normal"
+                    >
                       Daftar
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
               </>
@@ -72,22 +101,33 @@ const Navbar = () => {
               <>
                 <ul className="navbar-nav mx-auto">
                   <li className="nav-item h5 m-0">
-                    <Link to="/" className="nav-link nav-text fw-normal">
+                    <NavLink to="/" className="nav-link nav-text fw-normal">
                       Beranda
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item h5 m-0">
-                    <Link to="/modul" className="nav-link nav-text fw-normal">
+                    <NavLink
+                      to="/modul"
+                      className="nav-link nav-text fw-normal"
+                    >
                       Modul
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item h5 m-0">
-                    <Link
+                    <NavLink
+                      to="/event"
+                      className="nav-link nav-text fw-normal"
+                    >
+                      Event
+                    </NavLink>
+                  </li>
+                  <li className="nav-item h5 m-0">
+                    <NavLink
                       to="/dashboard"
                       className="nav-link nav-text fw-normal"
                     >
                       Dashboard
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
                 <ul className="navbar-nav">
@@ -109,10 +149,14 @@ const Navbar = () => {
                         {user.nama_depan + " " + user.nama_belakang}
                       </p>
                     </Link>
-                    <ul className="dropdown-menu text-small">
+                    <ul
+                      className="dropdown-menu text-small"
+                      style={{ backgroundColor: "#C7A488" }}
+                    >
                       <li>
                         <Link to="/profil" className="dropdown-item">
-                          Lihat Profil
+                          <CgProfile className="fs-3" />
+                          <span className="ps-2">Lihat Profil</span>
                         </Link>
                       </li>
                       <li>
@@ -123,7 +167,8 @@ const Navbar = () => {
                           className="dropdown-item"
                           onClick={handleLogout}
                         >
-                          Keluar
+                          <RiLogoutBoxRLine className="fs-3" />
+                          <span className="ps-2">Keluar</span>
                         </button>
                       </li>
                     </ul>

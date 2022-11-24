@@ -28,22 +28,22 @@ const Footer = () => {
             <h5 className="footer-text pw-semibold mb-3">Modul</h5>
             <ul className="p-0">
               <li className="mt-2 list-decoration-none">
-                <Link to="#" className="pw-light nav-link">
+                <Link to="/modul?q=Seni%20Rupa" className="pw-light nav-link">
                   Seni Rupa
                 </Link>
               </li>
               <li className="mt-2">
-                <Link to="#" className="pw-light nav-link">
+                <Link to="/modul?q=Seni%20Musik" className="pw-light nav-link">
                   Seni Musik
                 </Link>
               </li>
               <li className="mt-2">
-                <Link to="#" className="pw-light nav-link">
+                <Link to="/modul?q=Seni%20Tari" className="pw-light nav-link">
                   Seni Tari
                 </Link>
               </li>
               <li className="mt-2">
-                <Link to="#" className="pw-light nav-link">
+                <Link to="/modul?q=Seni%20Teater" className="pw-light nav-link">
                   Seni Teater
                 </Link>
               </li>
@@ -54,7 +54,7 @@ const Footer = () => {
             <ul className="p-0">
               <li className="mt-2">
                 <Link to="/about" className="pw-light nav-link">
-                  About Us
+                  Tentang
                 </Link>
               </li>
             </ul>
@@ -96,6 +96,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <hr />
       <p className="text-center m-0 pb-3">Copyright © 2022 Serrla</p>
     </footer>
   );
