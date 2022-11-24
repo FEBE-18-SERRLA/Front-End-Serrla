@@ -1,0 +1,20 @@
+.date {
+  font-size: 16px;
+}
+
+.card-image {
+  height: 200px;
+}
+
+.btn-card-event {
+  background-color: #005387;
+  color: #fff;
+  border: none;
+  width: 100px;
+}
+
+.btn-card-event:hover {
+  background-color: #fff;
+  color: #005387;
+  border: 1px solid #005387;
+}

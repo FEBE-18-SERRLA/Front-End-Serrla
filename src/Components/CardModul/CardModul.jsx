@@ -14,7 +14,7 @@ const CardModul = ({ title, image, descript, category, id, style }) => {
             alt={title}
           />
           <div className="card-body">
-            <h5 className="card-title" style={style}>
+            <h5 className="card-title" style={{ fontSize: "18px" }}>
               {title}
             </h5>
             <p className={`text-end fw-light ${module["kategori"]}`}>
