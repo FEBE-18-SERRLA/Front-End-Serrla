@@ -17,6 +17,7 @@ import {
   Profil,
   Katasandi,
   Event,
+  EventFavorite,
 } from "./../Pages";
 
 const AppRouter = () => {
@@ -39,6 +40,7 @@ const AppRouter = () => {
       <Route path="/dashboard">
         <Route path="" element={<Dashboard />} />
         <Route path="modul-saya" element={<ModulSaya />} />
+        <Route path="event-favorite" element={<EventFavorite />} />
       </Route>
       <Route path="/profil">
         <Route path="" element={<Profil />} />
