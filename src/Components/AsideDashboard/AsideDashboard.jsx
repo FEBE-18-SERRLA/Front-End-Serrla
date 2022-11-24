@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ImHome } from "react-icons/im";
 import { IoIosFolderOpen } from "react-icons/io";
+import { MdFavorite } from "react-icons/md";
 
 import { PlaceholderUser } from "../../Assets";
 
@@ -22,29 +23,47 @@ const AsideDashboard = () => {
             <p className="fw-normal pt-3">Nama User</p>
           </div>
           <div className="container my-5">
-            <nav>
-              <ul className="flex-column text-center p-0 ul-dashboard">
-                <li className="nav-item nav-item-dashboard">
-                  <Link
-                    to="/dashboard"
-                    className="nav-link active fw-semibold"
-                    aria-current="page"
-                  >
-                    <ImHome />
-                    <span className="text-dashboard ps-2">Dashboard</span>
-                  </Link>
-                </li>
-                <li className="nav-item nav-item-dashboard">
-                  <Link
-                    to="/dashboard/modul-saya"
-                    className="nav-link fw-semibold"
-                  >
-                    <IoIosFolderOpen />
-                    <span className="text-dashboard ps-2">Modul Saya</span>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
+            <ul className="flex-column text-center p-0">
+              <li className="nav-item">
+                <NavLink
+                  to="/dashboard/"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link active-dashboard fw-semibold nav-item-dashboard"
+                      : "nav-link fw-semibold nav-item-dashboard"
+                  }
+                >
+                  <ImHome />
+                  <span className="text-dashboard ps-2">Dashboard</span>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/dashboard/modul-saya"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link active-dashboard fw-semibold nav-item-dashboard"
+                      : "nav-link fw-semibold nav-item-dashboard"
+                  }
+                >
+                  <IoIosFolderOpen />
+                  <span className="text-dashboard ps-2">Modul Saya</span>
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="/dashboard/event-favorite"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link active-dashboard fw-semibold nav-item-dashboard"
+                      : "nav-link fw-semibold nav-item-dashboard"
+                  }
+                >
+                  <MdFavorite />
+                  <span className="text-dashboard ps-2">Event Favorite</span>
+                </NavLink>
+              </li>
+            </ul>
           </div>
         </div>
       </aside>
