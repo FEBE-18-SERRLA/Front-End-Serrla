@@ -45,9 +45,35 @@
   border-radius: 8px;
 }
 
+.navbar-nav .nav-item .active {
+  color: #666666;
+}
+
+.dropdown-menu .dropdown-item {
+  color: #fff;
+}
+
+.dropdown-menu .dropdown-item:active {
+  background-color: #fdfaf3;
+  color: #c7a488;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #fdfaf3;
+  color: #c7a488;
+}
+
 @media screen and (max-width: 769px) {
   .navbar-nav .nav-item .sign-up,
   .navbar-nav .nav-item .sign-in {
     display: inline-block;
+  }
+
+  .nav-text::after {
+    display: none;
+  }
+
+  .dropdown-menu {
+    width: 20%;
   }
 }
