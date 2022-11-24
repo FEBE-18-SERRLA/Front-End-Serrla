@@ -10,3 +10,4 @@ export { default as Dashboard } from "./09-Dashboard/Dashboard";
 export { default as ModulSaya } from "./10-ModulSaya/ModulSaya";
 export { default as Profil } from "./11-Profil/Profil";
 export { default as Katasandi } from "./12-Katasandi/Katasandi";
+export { default as Event } from "./13-EventPage/EventPage";
