@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { MdVpnKey } from "react-icons/md";
 const AsideProfil = () => {
@@ -9,17 +9,31 @@ const AsideProfil = () => {
         <div className="container my-5">
           <nav>
             <ul className="flex-column p-0">
-              <li className="nav-item nav-item-dashboard">
-                <Link to="/profil" className="nav-link active fw-semibold">
+              <li className="nav-item">
+                <NavLink
+                  to="/profil/"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link active-dashboard fw-semibold nav-item-dashboard"
+                      : "nav-link fw-semibold nav-item-dashboard"
+                  }
+                >
                   <CgProfile />
                   <span className="text-dashboard ps-2">Profil</span>
-                </Link>
+                </NavLink>
               </li>
-              <li className="nav-item nav-item-dashboard">
-                <Link to="/profil/katasandi" className="nav-link fw-semibold">
+              <li className="nav-item">
+                <NavLink
+                  to="/profil/katasandi"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "nav-link active-dashboard fw-semibold nav-item-dashboard"
+                      : "nav-link fw-semibold nav-item-dashboard"
+                  }
+                >
                   <MdVpnKey />
                   <span className="text-dashboard ps-2">Katasandi</span>
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </nav>
