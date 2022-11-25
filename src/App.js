@@ -16,13 +16,15 @@ function App() {
     <>
       {location.pathname !== "/sign-in" &&
         location.pathname !== "/sign-up" &&
-        location.pathname !== "/unauthorized" && (
+        location.pathname !== "/unauthorized" &&
+        location.pathname !== "/not-found" && (
           <Navbar show={show} setShow={setShow} />
         )}
       <AppRouter />
       {location.pathname !== "/sign-in" &&
         location.pathname !== "/sign-up" &&
-        location.pathname !== "/unauthorized" && (
+        location.pathname !== "/unauthorized" &&
+        location.pathname !== "/not-found" && (
           <Footer show={show} setShow={setShow} />
         )}
     </>

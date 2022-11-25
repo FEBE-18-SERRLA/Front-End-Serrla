@@ -1,0 +1,52 @@
+/*  */
+.vector1 {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  z-index: -1;
+}
+
+.vector2 {
+  position: absolute;
+  left: 450px;
+  z-index: -1;
+  width: 60px;
+}
+
+.vector3 {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+
+.vector4 {
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  z-index: -1;
+}
+
+.error-code {
+  font-size: 200px;
+}
+
+@media screen and (max-width: 768px) {
+  .vector1 {
+    display: none;
+  }
+  .vector2 {
+    display: none;
+  }
+  .vector3 {
+    display: none;
+  }
+  .vector4 {
+    display: none;
+  }
+  .error-code {
+    font-size: 100px;
+  }
+  .error-description {
+    font-size: 20px;
+  }
+}
