@@ -1,6 +1,6 @@
 // Node Module
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 // Pages
 import {
@@ -18,7 +18,11 @@ import {
   Katasandi,
   Event,
   EventFavorite,
+  Unauthorized,
+  NotFound,
 } from "./../Pages";
+
+import PrivateRoutes from "./PrivateRoute";
 
 const AppRouter = () => {
   const isLogin = localStorage.getItem("user");
@@ -31,24 +35,29 @@ const AppRouter = () => {
           <Route path="/" element={<LandingPage />} />
         </>
       )}
+      <Route element={<PrivateRoutes />}>
+        <Route path="/modul">
+          <Route path="" element={<Modul />} />
+          <Route path="detail-modul/:id" element={<DetailModul />} />
+        </Route>
+        <Route path="/dashboard">
+          <Route path="" element={<Dashboard />} />
+          <Route path="modul-saya" element={<ModulSaya />} />
+          <Route path="event-favorite" element={<EventFavorite />} />
+        </Route>
+        <Route path="/profil">
+          <Route path="" element={<Profil />} />
+          <Route path="katasandi" element={<Katasandi />} />
+        </Route>
+        <Route path="/event" element={<Event />} />
+      </Route>
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/sign-in" element={<SignIn />} />
-      <Route path="/modul">
-        <Route path="" element={<Modul />} />
-        <Route path="detail-modul/:id" element={<DetailModul />} />
-      </Route>
-      <Route path="/dashboard">
-        <Route path="" element={<Dashboard />} />
-        <Route path="modul-saya" element={<ModulSaya />} />
-        <Route path="event-favorite" element={<EventFavorite />} />
-      </Route>
-      <Route path="/profil">
-        <Route path="" element={<Profil />} />
-        <Route path="katasandi" element={<Katasandi />} />
-      </Route>
-      <Route path="/event" element={<Event />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/unauthorized" element={<Unauthorized />} />
+      <Route path="/not-found" element={<NotFound />} />
+      <Route path="*" element={<Navigate to="not-found" />} />
     </Routes>
   );
 };

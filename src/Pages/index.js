@@ -12,3 +12,5 @@ export { default as Profil } from "./11-Profil/Profil";
 export { default as Katasandi } from "./12-Katasandi/Katasandi";
 export { default as Event } from "./13-EventPage/EventPage";
 export { default as EventFavorite } from "./14-EventFavorite/EventFavorite";
+export { default as Unauthorized } from "./15-Unauthorized/Unauthorized";
+export { default as NotFound } from "./16-NotFound/NotFound";
