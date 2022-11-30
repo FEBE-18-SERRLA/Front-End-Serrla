@@ -20,8 +20,14 @@ export const postSignInSuccess = (user) => {
 export const signUp = (user) => {
   return async (dispatch) => {
     const response = await axios.post(
-      "https://634e1a17b8ce95a1dd7e9aa0.mockapi.io/users",
-      user
+      "https://tesbe-production.up.railway.app/users",
+      user,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
     );
     dispatch(postSignUpSuccess(response.data));
   };

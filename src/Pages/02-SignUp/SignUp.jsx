@@ -35,8 +35,8 @@ const SignUp = () => {
         if (result.isConfirmed) {
           dispacth(
             signUp({
-              nama_depan: namaDepan,
-              nama_belakang: namaBelakang,
+              first_name: namaDepan,
+              last_name: namaBelakang,
               email: email,
               password: password,
             })
