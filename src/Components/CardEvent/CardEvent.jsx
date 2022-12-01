@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
 import PropTypes from "prop-types";
 import module from "./CardEvent.module.css";
@@ -28,9 +27,14 @@ const CardEvent = ({ image, title, date, location }) => {
             {location}
           </p>
           <div className="container-button-card d-flex justify-content-between">
-            <Link to="" className={`btn ${module["btn-card-event"]}`}>
+            <a
+              href="https://serrum.id/"
+              className={`btn ${module["btn-card-event"]}`}
+              target="_blank"
+              rel="noreferrer"
+            >
               ikut
-            </Link>
+            </a>
             <button className="btn btn-like" onClick={handleLike}>
               {like ? (
                 <AiTwotoneHeart className="text-danger fs-3" />
