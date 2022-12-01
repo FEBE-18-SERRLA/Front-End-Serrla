@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
+import React from "react";
 import PropTypes from "prop-types";
 import module from "./CardEvent.module.css";
 
-const CardEvent = ({ image, title, date, location, like, onClick }) => {
+const CardEvent = ({ image, title, date, location, onClick, childern }) => {
   return (
     <>
       <div className="card">
@@ -30,11 +29,7 @@ const CardEvent = ({ image, title, date, location, like, onClick }) => {
               ikut
             </a>
             <button className="btn btn-like" onClick={onClick}>
-              {like === true ? (
-                <AiTwotoneHeart className="text-danger fs-3" />
-              ) : (
-                <AiOutlineHeart className="fs-3" />
-              )}
+              {childern}
             </button>
           </div>
         </div>

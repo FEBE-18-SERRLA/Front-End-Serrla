@@ -45,13 +45,31 @@ export const getEvents = () => {
   };
 };
 
-export const getEventById = (id) => {
-  return async (dispatch) => {
+// export const getEventById = (id) => {
+//   return async (dispatch) => {
+//     dispatch(fetchStart());
+//     const response = await axios.get(
+//       `https://tesbe-production.up.railway.app/events/${id}`
+//     );
+//     dispatch(getEventsSuccess(response.data.data));
+//   };
+// };
+
+export const getEventFavorites = () => {
+  return (dispatch) => {
     dispatch(fetchStart());
-    const response = await axios.get(
-      `https://tesbe-production.up.railway.app/events/${id}`
-    );
-    dispatch(getEventsSuccess(response.data.data));
+    let token = localStorage.getItem("token");
+    let id = localStorage.getItem("id");
+    if (token) {
+      axios
+        .get(`https://tesbe-production.up.railway.app/users/${id}/favorites`)
+        .then((response) => {
+          dispatch(getEventFavoritesSuccess(response.data.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 };
 
