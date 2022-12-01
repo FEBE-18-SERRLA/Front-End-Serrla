@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AsideDashboard from "Components/AsideDashboard/AsideDashboard";
 import CardEvent from "Components/CardEvent/CardEvent";
+import { getEventFavorites } from "Redux/Actions/event";
+import { useDispatch, useSelector } from "react-redux";
 
 const EventFavorite = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getEventFavorites());
+  }, [dispatch]);
   return (
     <main>
       <div className="container mb-5">
