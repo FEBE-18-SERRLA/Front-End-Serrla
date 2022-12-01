@@ -1,10 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AsideProfil from "Components/AsideProfil/AsideProfil";
 
 import { BsPencilFill } from "react-icons/bs";
 import { PlaceholderUser } from "../../Assets";
+import { useDispatch } from "react-redux";
+import axios from "axios";
+import { getUserByIdSuccess } from "Redux/Actions/user";
+import { getSchool } from "Redux/Actions/school";
+import { useSelector } from "react-redux";
 
 const Profil = () => {
+  const dispatch = useDispatch();
+  const { data } = useSelector((state) => state.user.user);
+  const school = useSelector((state) => state.school.school.data);
+  const [isloading, setIsloading] = useState(false);
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    let id = localStorage.getItem("id");
+    if (token) {
+      axios
+        .get(`https://tesbe-production.up.railway.app/users/${id}`)
+        .then((res) => {
+          dispatch(getUserByIdSuccess(res.data));
+          setIsloading(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
+
+  useEffect(() => {
+    dispatch(getSchool());
+  }, []);
+
   return (
     <>
       <main>
@@ -34,7 +64,7 @@ const Profil = () => {
                       <div className="row align-items-center g-3">
                         <div className="img col-md-3">
                           <img
-                            src={PlaceholderUser}
+                            src={isloading ? data.picture : PlaceholderUser}
                             alt="Foto Profil"
                             width="100px"
                             className="d-inline-block align-text-top rounded-circle"
@@ -66,6 +96,7 @@ const Profil = () => {
                               className="form-control"
                               id="nama-depan"
                               placeholder="Nama-Depan"
+                              defaultValue={isloading ? data.first_name : ""}
                             />
                           </div>
                         </div>
@@ -82,6 +113,7 @@ const Profil = () => {
                               className="form-control"
                               id="nama-belakang"
                               placeholder="Nama Belakang"
+                              defaultValue={isloading ? data.last_name : ""}
                             />
                           </div>
                         </div>
@@ -100,6 +132,7 @@ const Profil = () => {
                               className="form-control"
                               id="email"
                               placeholder="email"
+                              defaultValue={isloading ? data.email : ""}
                             />
                           </div>
                         </div>
@@ -117,15 +150,14 @@ const Profil = () => {
                               className="form-select form-select mb-3"
                             >
                               <option selected>--Pilih Sekolah--</option>
-                              <option value="SMA Negeri 1 Jakarta">
-                                SMA Negeri 1 Jakarta
-                              </option>
-                              <option value="SMA Negeri 4 JAkarta">
-                                SMA Negeri 4 Jakarta
-                              </option>
-                              <option value="SMA Negeri 5 Jakarta">
-                                SMA Negeri 5 Jakarta
-                              </option>
+                              {isloading &&
+                                school.map((item, index) => {
+                                  return (
+                                    <option value={item.id} key={index}>
+                                      {item.name}
+                                    </option>
+                                  );
+                                })}
                             </select>
                           </div>
                         </div>
