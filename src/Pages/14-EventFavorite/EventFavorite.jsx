@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AsideDashboard from "Components/AsideDashboard/AsideDashboard";
 import CardEvent from "Components/CardEvent/CardEvent";
+import { getEventFavorites } from "Redux/Actions/event";
+import { useDispatch, useSelector } from "react-redux";
 
 const EventFavorite = () => {
+  const dispatch = useDispatch();
+  const { eventFavorites, isloading, like } = useSelector(
+    (state) => state.event
+  );
+
+  useEffect(() => {
+    dispatch(getEventFavorites());
+  }, []);
   return (
     <main>
       <div className="container mb-5">
@@ -18,33 +28,26 @@ const EventFavorite = () => {
               <article className="container">
                 <h4 className="fw-bold modul-heading">Event Favorite</h4>
                 <div className="row mx-auto gy-3 my-3">
-                  <div className="col-sm-6">
-                    <CardEvent
-                      image="https://picsum.photos/200/300"
-                      title="Event 1"
-                      date="12-12-2021"
-                      location="Jakarta"
-                      style={{ width: "20rem" }}
-                    />
-                  </div>
-                  <div className="col-sm-6">
-                    <CardEvent
-                      image="https://picsum.photos/200/300"
-                      title="Event 1"
-                      date="12-12-2021"
-                      location="Jakarta"
-                      style={{ width: "20rem" }}
-                    />
-                  </div>
-                  <div className="col-sm-6">
-                    <CardEvent
-                      image="https://picsum.photos/200/300"
-                      title="Event 1"
-                      date="12-12-2021"
-                      location="Jakarta"
-                      style={{ width: "20rem" }}
-                    />
-                  </div>
+                  {isloading ? (
+                    <span className="visually-hidden">Loading...</span>
+                  ) : (
+                    eventFavorites?.map((item, index) => {
+                      console.log(item);
+                      return (
+                        <div className="col-sm-6" key={index}>
+                          <CardEvent
+                            image={item.event.image}
+                            title={item.event.name}
+                            date={item.event.date}
+                            location={item.event.location}
+                            style={{ width: "20rem" }}
+                            like={like}
+                            onClick={() => dispatch(getEventFavorites())}
+                          />
+                        </div>
+                      );
+                    })
+                  )}
                 </div>
               </article>
             </section>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import {
   getFilteredModul,
+  getModul,
   getSearchedModul,
 } from "../../Redux/Actions/modulActions";
 import InputRadioBtn from "../../Components/InputRadioBtn/InputRadioBtn";
@@ -17,6 +18,8 @@ const Modul = () => {
   const [filter, setFilter] = useState("");
   const { modul, isLoading } = useSelector((state) => state.modul);
 
+  console.log(modul)
+
   const submit = (e) => {
     e.preventDefault();
     navigate(`?q=${filter}`);
@@ -28,8 +31,8 @@ const Modul = () => {
   };
 
   useEffect(() => {
-    dispatch(getFilteredModul(query.get("q")));
-  }, [query]);
+    dispatch(getModul());
+  }, []);
 
   const handleSearch = (e) => {
     dispatch(getSearchedModul(e.target.value));
@@ -122,10 +125,10 @@ const Modul = () => {
                       return (
                         <div key={item.id} className="col">
                           <CardModul
-                            title={item.title}
+                            title={item.name}
                             image={item.image}
-                            descript={item.descript}
-                            category={item.category}
+                            descript={item.description}
+                            category={item.track.name}
                             id={item.id}
                             style={{ width: "15rem", fontWeight: "400" }}
                           />

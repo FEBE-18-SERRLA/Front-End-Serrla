@@ -11,6 +11,7 @@ import "./DetailModul.css";
 
 const DetailModul = () => {
 	const dispatch = useDispatch();
+	const {modul, isLoading} = useSelector((state => state.modul))
 	const { id } = useParams();
 	const { contents } = useSelector((state) => state.modul.modul);
 	const response = useRef(null);
@@ -23,9 +24,11 @@ const DetailModul = () => {
 		console.log(contents);
 	}, []);
 
-	const handleClickAside = (e) => {
+	
+	const handleClickAside = (e, idxContent) => {
+		console.log(idxContent)
 		const { title, description, image, video } =
-			contents[e.target.dataset.list - 1];
+			modul.modules[idxContent];
 		if (video) {
 			response.current.innerHTML = ReactDOMServer.renderToString(
 				<TemplateDetailContentWithVideo
@@ -60,18 +63,18 @@ const DetailModul = () => {
 							<div className="container-daftar">
 								<h3 className="daftar">Daftar Materi</h3>
 								<ul className="list">
-									{contents &&
-										contents.map((item, index) => {
+									{modul.modules &&
+										modul.modules.map((item, index) => {
 											return (
 												<ListAside
 													no={index + 1}
 													title={item.title}
 													key={index}
-													onClick={handleClickAside}
+													onClick={(e)=> handleClickAside(e,index)}
 												/>
 											);
 										})}
-									<li className="list-span" data-list="5">
+									{/* <li className="list-span" data-list="5">
 										<Link
 											className="text-black text-decoration-none"
 											to={`/quiz/test/${id}`}
@@ -84,7 +87,7 @@ const DetailModul = () => {
 										>
 											5. Quiz
 										</Link>
-									</li>
+									</li> */}
 								</ul>
 							</div>
 						</aside>

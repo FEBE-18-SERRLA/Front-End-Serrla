@@ -127,7 +127,7 @@ const Home = () => {
                   {isLoading ? (
                     <span>Loading........</span>
                   ) : (
-                    modul.map((item) => {
+                    modul?.map((item) => {
                       return (
                         <SwiperSlide key={item.id}>
                           <CardModul
@@ -182,7 +182,7 @@ const Home = () => {
                   {isLoading ? (
                     <span>Loading........</span>
                   ) : (
-                    instructur.map((item) => {
+                    instructur?.map((item) => {
                       return (
                         <SwiperSlide key={item.id}>
                           <CardInstructur
