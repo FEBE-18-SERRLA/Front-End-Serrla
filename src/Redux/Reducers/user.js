@@ -1,21 +1,23 @@
-import { SIGN_UP, SIGN_IN } from "../Actions/userActions";
+import { GET_ALL_USERS, GET_USER_BY_ID } from "Redux/Actions/user";
 
 const initialState = {
   user: [],
+  isLoading: false,
 };
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SIGN_UP:
+    case GET_ALL_USERS:
       return {
         ...state,
-        user: action.user,
+        user: action.users,
+        isLoading: false,
       };
-
-    case SIGN_IN:
+    case GET_USER_BY_ID:
       return {
         ...state,
         user: action.user,
+        isLoading: false,
       };
 
     default:

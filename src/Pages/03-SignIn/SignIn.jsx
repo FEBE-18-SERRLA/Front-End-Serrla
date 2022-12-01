@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
-import { useDispatch, useSelector } from "react-redux";
-import { signIn } from "../../Redux/Actions/userActions";
+import { useDispatch } from "react-redux";
+import { signIn } from "../../Redux/Actions/authActions";
 import { Gambar4 } from "../../Assets";
 import InputText from "../../Components/InputText/InputText";
 import Swal from "sweetalert2";
@@ -16,12 +16,7 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user } = useSelector((state) => state.user);
   const dispacth = useDispatch();
-
-  useEffect(() => {
-    dispacth(signIn(email, password));
-  }, []);
 
   useEffect(() => {
     gapi.load("client:auth2", () => {
@@ -33,25 +28,17 @@ const SignIn = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const findUser = user.find(
-      (item) => item.email === email && item.password === password
-    );
-    if (findUser) {
-      localStorage.setItem("user", JSON.stringify(findUser));
-      Swal.fire({
-        icon: "success",
-        title: "Berhasil Masuk",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      navigate("/");
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Email atau Password Salah!",
-      });
-    }
+    dispacth(signIn(email, password));
+    Swal.fire({
+      icon: "success",
+      title: "Success",
+      text: "Login Berhasil!",
+      confirmButtonText: "OK",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate("/");
+      }
+    });
   };
 
   const onSuccess = (res) => {

@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 
 const PrivateRoutes = () => {
-  const isLogin = localStorage.getItem("user");
+  const isLogin = localStorage.getItem("token");
   return <>{isLogin ? <Outlet /> : <Navigate to="/unauthorized" />}</>;
 };
 

@@ -25,7 +25,7 @@ import {
 import PrivateRoutes from "./PrivateRoute";
 
 const AppRouter = () => {
-  const isLogin = localStorage.getItem("user");
+  const isLogin = localStorage.getItem("token");
   return (
     <Routes>
       {isLogin ? (
