@@ -24,6 +24,7 @@ export default function eventReducer(state = initialState, action) {
         events: action.events,
         isloading: false,
       };
+
     case GET_EVENT_FAVORITES:
       return {
         ...state,
