@@ -1,20 +1,43 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
+import { RiLogoutBoxRLine } from "react-icons/ri";
 import { Logo, PlaceholderUser } from "../../Assets";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserByIdSuccess } from "Redux/Actions/user";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const isLogin = localStorage.getItem("user");
-  const user = JSON.parse(isLogin);
+  const isLogin = localStorage.getItem("token");
+  const dispacth = useDispatch();
   const navigate = useNavigate();
+  const { data } = useSelector((state) => state.user.user);
+  const [isloading, setIsloading] = useState(false);
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    let id = localStorage.getItem("id");
+    if (token) {
+      axios
+        .get(`https://tesbe-production.up.railway.app/users/${id}`)
+        .then((res) => {
+          dispacth(getUserByIdSuccess(res.data));
+          setIsloading(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("token");
     navigate("/");
   };
   return (
     <header className="sticky-top">
-      <nav className="navbar navbar-expand-lg p-2">
+      <nav className="navbar navbar-expand-lg p-2 nav-header">
         <div className="container">
           <Link to="/" className="navbar-brand">
             <img
@@ -40,31 +63,58 @@ const Navbar = () => {
               <>
                 <ul className="navbar-nav mx-auto">
                   <li className="nav-item h5 m-0">
-                    <Link to="/" className="nav-link nav-text fw-normal">
+                    <NavLink
+                      to="/"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "active nav-link nav-text fw-normal"
+                          : "nav-link nav-text fw-normal"
+                      }
+                    >
                       Beranda
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item h5 m-0">
-                    <Link to="/about" className="nav-link nav-text fw-normal">
+                    <NavLink
+                      to="/about"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "active nav-link nav-text fw-normal"
+                          : "nav-link nav-text fw-normal"
+                      }
+                    >
                       Tentang
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item h5 m-0">
-                    <Link to="/contact" className="nav-link nav-text fw-normal">
+                    <NavLink
+                      to="/contact"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "active nav-link nav-text fw-normal"
+                          : "nav-link nav-text fw-normal"
+                      }
+                    >
                       Kontak
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
                 <ul className="navbar-nav">
                   <li className="nav-item h5 me-3">
-                    <Link to="/sign-in" className="nav-link sign-in fw-normal">
+                    <NavLink
+                      to="/sign-in"
+                      className="nav-link sign-in fw-normal"
+                    >
                       Masuk
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item h5">
-                    <Link to="/sign-up" className="nav-link sign-up fw-normal">
+                    <NavLink
+                      to="/sign-up"
+                      className="nav-link sign-up fw-normal"
+                    >
                       Daftar
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
               </>
@@ -72,26 +122,37 @@ const Navbar = () => {
               <>
                 <ul className="navbar-nav mx-auto">
                   <li className="nav-item h5 m-0">
-                    <Link to="/" className="nav-link nav-text fw-normal">
+                    <NavLink to="/" className="nav-link nav-text fw-normal">
                       Beranda
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item h5 m-0">
-                    <Link to="/modul" className="nav-link nav-text fw-normal">
+                    <NavLink
+                      to="/modul"
+                      className="nav-link nav-text fw-normal"
+                    >
                       Modul
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item h5 m-0">
-                    <Link
+                    <NavLink
+                      to="/event"
+                      className="nav-link nav-text fw-normal"
+                    >
+                      Event
+                    </NavLink>
+                  </li>
+                  <li className="nav-item h5 m-0">
+                    <NavLink
                       to="/dashboard"
                       className="nav-link nav-text fw-normal"
                     >
                       Dashboard
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
                 <ul className="navbar-nav">
-                  <div className="dropdown text-end">
+                  <div className="dropdown">
                     <Link
                       to=""
                       className="d-block link-dark text-decoration-none dropdown-toggle"
@@ -99,20 +160,28 @@ const Navbar = () => {
                       aria-expanded="false"
                     >
                       <img
-                        src={PlaceholderUser}
-                        alt="mdo"
+                        src={isloading ? data.picture : PlaceholderUser}
+                        alt="foto profil"
                         width="32"
                         height="32"
                         className="rounded-circle"
                       />
                       <p className="d-inline-block ms-2 m-0 text-light">
-                        {user.nama_depan + " " + user.nama_belakang}
+                        {isloading === true ? (
+                          data.first_name + " " + data.last_name
+                        ) : (
+                          <span className="visually-hidden">Loading...</span>
+                        )}
                       </p>
                     </Link>
-                    <ul className="dropdown-menu text-small">
+                    <ul
+                      className="dropdown-menu text-small"
+                      style={{ backgroundColor: "#C7A488" }}
+                    >
                       <li>
-                        <Link to="/" className="dropdown-item">
-                          Lihat Profil
+                        <Link to="/profil" className="dropdown-item">
+                          <CgProfile className="fs-3" />
+                          <span className="ps-2">Lihat Profil</span>
                         </Link>
                       </li>
                       <li>
@@ -123,7 +192,8 @@ const Navbar = () => {
                           className="dropdown-item"
                           onClick={handleLogout}
                         >
-                          Keluar
+                          <RiLogoutBoxRLine className="fs-3" />
+                          <span className="ps-2">Keluar</span>
                         </button>
                       </li>
                     </ul>

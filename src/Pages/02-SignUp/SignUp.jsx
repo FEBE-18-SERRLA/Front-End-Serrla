@@ -4,7 +4,7 @@ import { Gambar3 } from "../../Assets";
 import InputText from "../../Components/InputText/InputText";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
-import { signUp } from "../../Redux/Actions/userActions";
+import { signUp } from "../../Redux/Actions/authActions";
 import { Link } from "react-router-dom";
 import "./SignUp.css";
 
@@ -35,8 +35,8 @@ const SignUp = () => {
         if (result.isConfirmed) {
           dispacth(
             signUp({
-              nama_depan: namaDepan,
-              nama_belakang: namaBelakang,
+              first_name: namaDepan,
+              last_name: namaBelakang,
               email: email,
               password: password,
             })

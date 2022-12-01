@@ -1,44 +1,52 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { signIn } from "../../Redux/Actions/userActions";
-import { Gambar4, Google } from "../../Assets";
+import { GoogleLogin } from "react-google-login";
+import { gapi } from "gapi-script";
+import { useDispatch } from "react-redux";
+import { signIn } from "../../Redux/Actions/authActions";
+import { Gambar4 } from "../../Assets";
 import InputText from "../../Components/InputText/InputText";
 import Swal from "sweetalert2";
 import "./SignIn.css";
 
 const SignIn = () => {
+  const clientId =
+    "1051427066530-j8fjqpmrdnt48riasbe024q3kc2uvijr.apps.googleusercontent.com";
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { user } = useSelector((state) => state.user);
   const dispacth = useDispatch();
 
   useEffect(() => {
-    dispacth(signIn(email, password));
-  }, []);
+    gapi.load("client:auth2", () => {
+      gapi.auth2.init({
+        clientId: clientId,
+      });
+    });
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const findUser = user.find(
-      (item) => item.email === email && item.password === password
-    );
-    if (findUser) {
-      localStorage.setItem("user", JSON.stringify(findUser));
-      Swal.fire({
-        icon: "success",
-        title: "Berhasil Masuk",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      navigate("/");
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Email atau Password Salah!",
-      });
-    }
+    dispacth(signIn(email, password));
+    Swal.fire({
+      icon: "success",
+      title: "Success",
+      text: "Login Berhasil!",
+      confirmButtonText: "OK",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate("/");
+      }
+    });
+  };
+
+  const onSuccess = (res) => {
+    console.log("Login Success: currentUser:", res.profileObj);
+  };
+
+  const onFailure = (res) => {
+    console.log("[Login failed] res:", res);
   };
   return (
     <>
@@ -53,7 +61,7 @@ const SignIn = () => {
                 >
                   Masuk
                 </h2>
-                <form className="mx-3" onSubmit={handleSubmit}>
+                <form className="" onSubmit={handleSubmit}>
                   <InputText
                     valueLabel="Email"
                     valueFor="email"
@@ -82,15 +90,22 @@ const SignIn = () => {
                   </button>
                 </form>
                 <p className="my-2 text-center">atau</p>
-                <button
-                  type="submit"
-                  className="btn bg-light w-100 text-center"
-                >
-                  <img src={Google} alt="" width="25" />
-                  Masuk Dengan Akun Google
-                </button>
+                <div className="btn-google text-center">
+                  <GoogleLogin
+                    clientId={clientId}
+                    buttonText="Masuk dengan Google"
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    cookiePolicy={"single_host_origin"}
+                    style={{
+                      marginTop: "100px",
+                      width: "100%",
+                    }}
+                    isSignedIn={true}
+                  />
+                </div>
                 <p className="mt-2 text-center">
-                  Belum punya akun? <Link to="/sign-up">Sign Up</Link>
+                  Belum punya akun? <Link to="/sign-up">Daftar</Link>
                 </p>
               </div>
             </div>

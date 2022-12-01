@@ -1,0 +1,27 @@
+/* ASIDE */
+.nav-item-dashboard {
+  padding: 10px 16px;
+}
+
+.nav-item-dashboard:hover {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.active-dashboard {
+  padding: 10px 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+  .text-dashboard {
+    display: none;
+  }
+
+  .container-img-user {
+    display: none;
+  }
+}

@@ -2,12 +2,18 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import modulReducers from "../Reducers/modulReducers";
 import instructurReducers from "../Reducers/instructurReducers";
-import userReducer from "..//Reducers/userReducers";
+import authReducer from "../Reducers/authReducers";
+import eventReducer from "Redux/Reducers/event";
+import userReducer from "Redux/Reducers/user";
+import schoolReducer from "Redux/Reducers/school";
 
 const allReducer = combineReducers({
   modul: modulReducers,
   instructur: instructurReducers,
+  auth: authReducer,
   user: userReducer,
+  event: eventReducer,
+  school: schoolReducer,
 });
 
 const store = createStore(allReducer, applyMiddleware(thunk));
