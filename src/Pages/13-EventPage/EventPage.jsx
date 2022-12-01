@@ -5,7 +5,7 @@ import CardEvent from "../../Components/CardEvent/CardEvent";
 
 const EventPage = () => {
   const data = useSelector((state) => state.event.events);
-  console.log(data);
+  const like = useSelector((state) => state.event.like);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,6 +30,8 @@ const EventPage = () => {
                   title={item.name}
                   date={item.date}
                   location={item.location}
+                  like={like}
+                  onClick={() => dispatch(getEvents())}
                 />
               </div>
             );
