@@ -4,9 +4,10 @@ import { getEvents } from "Redux/Actions/event";
 import CardEvent from "../../Components/CardEvent/CardEvent";
 
 const EventPage = () => {
-  const { data } = useSelector((state) => state.event.events);
+  const data = useSelector((state) => state.event.events);
   console.log(data);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getEvents());
   }, [dispatch]);

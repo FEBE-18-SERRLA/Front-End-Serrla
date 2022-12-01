@@ -1,7 +1,8 @@
-import { GET_EVENTS } from "Redux/Actions/event";
+import { GET_EVENTS, GET_EVENT_FAVORITES } from "Redux/Actions/event";
 
 const initialState = {
   events: [],
+  like: false,
 };
 
 export default function eventReducer(state = initialState, action) {
@@ -11,6 +12,13 @@ export default function eventReducer(state = initialState, action) {
         ...state,
         events: action.events,
       };
+    case GET_EVENT_FAVORITES:
+      return {
+        ...state,
+        eventFavorites: action.eventFavorites,
+        like: true,
+      };
+
     default:
       return state;
   }
