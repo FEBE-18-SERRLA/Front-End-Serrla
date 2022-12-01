@@ -5,6 +5,7 @@ import instructurReducers from "../Reducers/instructurReducers";
 import authReducer from "../Reducers/authReducers";
 import eventReducer from "Redux/Reducers/event";
 import userReducer from "Redux/Reducers/user";
+import schoolReducer from "Redux/Reducers/school";
 
 const allReducer = combineReducers({
   modul: modulReducers,
@@ -12,6 +13,7 @@ const allReducer = combineReducers({
   auth: authReducer,
   user: userReducer,
   event: eventReducer,
+  school: schoolReducer,
 });
 
 const store = createStore(allReducer, applyMiddleware(thunk));
