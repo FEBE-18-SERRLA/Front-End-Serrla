@@ -10,6 +10,8 @@ import {
   Home,
   Modul,
   DetailModul,
+  Quiz,
+  DetailQuiz,
   About,
   Contact,
   Dashboard,
@@ -39,6 +41,10 @@ const AppRouter = () => {
         <Route path="/modul">
           <Route path="" element={<Modul />} />
           <Route path="detail-modul/:id" element={<DetailModul />} />
+        </Route>
+        <Route path="/quiz">
+          {/* <Route path="" element={<Quiz />} /> */}
+          <Route path="test/:id" element={<DetailQuiz />} />
         </Route>
         <Route path="/dashboard">
           <Route path="" element={<Dashboard />} />
