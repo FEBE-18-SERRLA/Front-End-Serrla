@@ -1,6 +1,8 @@
 import React from "react";
 
 const TemplateDetailContentWithVideo = ({ title, description, video }) => {
+  const srcVideo = video.replace("watch?v=", "embed/")
+
   return (
     <>
       <div className="p-5 detail-content">
@@ -12,7 +14,7 @@ const TemplateDetailContentWithVideo = ({ title, description, video }) => {
             className="mx-auto d-block"
             width="560"
             height="315"
-            src={video}
+            src={srcVideo}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

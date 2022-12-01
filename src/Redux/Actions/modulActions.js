@@ -45,9 +45,9 @@ export const getModul = () => {
   return async (dispatch) => {
     dispatch(fetchStart());
     const modul = await axios.get(
-      "https://634e1a17b8ce95a1dd7e9aa0.mockapi.io/moduls?"
+      "https://tesbe-production.up.railway.app/courses"
     );
-    dispatch(getModulSuccess(modul.data));
+    dispatch(getModulSuccess(modul.data.data));
   };
 };
 
@@ -75,8 +75,8 @@ export const getDetailModul = (id) => {
   return async (dispatch) => {
     dispatch(fetchStart());
     const modul = await axios.get(
-      `https://634e1a17b8ce95a1dd7e9aa0.mockapi.io/moduls/${id}/content/${id}`
+      `https://tesbe-production.up.railway.app/courses/${id}`
     );
-    dispatch(getDetailModulSuccess(modul.data));
+    dispatch(getDetailModulSuccess(modul.data.data));
   };
 };
