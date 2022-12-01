@@ -187,8 +187,8 @@ const Home = () => {
                         <SwiperSlide key={item.id}>
                           <CardInstructur
                             name={item.name}
-                            image={item.image}
-                            descript={item.descript}
+                            image={item.picture}
+                            descript={item.bio}
                           />
                         </SwiperSlide>
                       );
