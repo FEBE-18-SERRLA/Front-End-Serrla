@@ -1,17 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { Logo, PlaceholderUser } from "../../Assets";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserByIdSuccess } from "Redux/Actions/user";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const isLogin = localStorage.getItem("user");
-  const user = JSON.parse(isLogin);
+  const isLogin = localStorage.getItem("token");
+  const dispacth = useDispatch();
   const navigate = useNavigate();
+  const { data } = useSelector((state) => state.user.user);
+  const [isloading, setIsloading] = useState(false);
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    let id = localStorage.getItem("id");
+    if (token) {
+      axios
+        .get(`https://tesbe-production.up.railway.app/users/${id}`)
+        .then((res) => {
+          dispacth(getUserByIdSuccess(res.data));
+          setIsloading(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("token");
     navigate("/");
   };
   return (
@@ -139,14 +160,18 @@ const Navbar = () => {
                       aria-expanded="false"
                     >
                       <img
-                        src={PlaceholderUser}
-                        alt="mdo"
+                        src={isloading ? data.picture : PlaceholderUser}
+                        alt="foto profil"
                         width="32"
                         height="32"
                         className="rounded-circle"
                       />
                       <p className="d-inline-block ms-2 m-0 text-light">
-                        {user.nama_depan + " " + user.nama_belakang}
+                        {isloading === true ? (
+                          data.first_name + " " + data.last_name
+                        ) : (
+                          <span className="visually-hidden">Loading...</span>
+                        )}
                       </p>
                     </Link>
                     <ul
