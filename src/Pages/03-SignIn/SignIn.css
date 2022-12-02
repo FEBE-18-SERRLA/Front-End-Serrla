@@ -43,7 +43,7 @@
   font-weight: medium;
 }
 
-.btn-sign-in:hover {
+.mx-3 .btn-sign-in:hover {
   background-color: #00416a;
   color: white;
 }

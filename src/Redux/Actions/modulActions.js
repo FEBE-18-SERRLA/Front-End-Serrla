@@ -61,12 +61,12 @@ export const getSearchedModul = (search) => {
 };
 
 export const getFilteredModul = (category) => {
-  const params = category ?? "";
   return async (dispatch) => {
     dispatch(fetchStart());
     const filterModulData = await axios.get(
-      `https://634e1a17b8ce95a1dd7e9aa0.mockapi.io/moduls?category=${params}`
+      `https://tesbe-production.up.railway.app/courses/filter?track=${category ?? ""}`
     );
+    console.log('filterModulData', filterModulData.data);
     dispatch(filterModul(filterModulData.data));
   };
 };
