@@ -18,7 +18,7 @@ const Modul = () => {
   const [filter, setFilter] = useState("");
   const { modul, isLoading } = useSelector((state) => state.modul);
 
-  console.log(modul)
+  console.log(modul);
 
   const submit = (e) => {
     e.preventDefault();
@@ -120,8 +120,8 @@ const Modul = () => {
                 <div className="row list-modul g-3">
                   {isLoading ? (
                     <span>Loading........</span>
-                  ) : modul.length > 0 ? (
-                    modul.map((item) => {
+                  ) : modul?.length > 0 ? (
+                    modul?.map((item) => {
                       return (
                         <div key={item.id} className="col">
                           <CardModul
