@@ -15,8 +15,10 @@ const Modul = () => {
   const isLoading = useSelector((state) => state.modul.isLoading);
   const [tracks, setTracks] = useState([]);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(!loading);
     dispatch(getModul());
     getTracks();
   }, [dispatch]);
@@ -40,6 +42,9 @@ const Modul = () => {
     dispatch(getSearchedModul(e.target.value));
   };
 
+  if (loading) {
+    return <></>;
+  }
   return (
     <div>
       <main>
