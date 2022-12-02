@@ -10,15 +10,20 @@ import CardModul from "../../Components/CardModul/CardModul";
 import "./Modul.css";
 
 const Modul = () => {
-  const dispatch = useDispatch();
   const [filter, setFilter] = useState("");
-  const { modul, isLoading } = useSelector((state) => state.modul);
+  const modul = useSelector((state) => state.modul.modul);
+  const isLoading = useSelector((state) => state.modul.isLoading);
   const [tracks, setTracks] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getModul());
+    getTracks();
+  }, [dispatch]);
 
   const getTracks = async () => {
-    const res = await fetch("https://tesbe-production.up.railway.app/tracks");
+    const res = await fetch("https://serrla-api.up.railway.app/tracks");
     const json = await res.json();
-
     setTracks(json.data);
   };
 
@@ -30,11 +35,6 @@ const Modul = () => {
   const onChangeFilter = (e) => {
     setFilter(e.target.value);
   };
-
-  useEffect(() => {
-    dispatch(getModul());
-    getTracks();
-  }, []);
 
   const handleSearch = (e) => {
     dispatch(getSearchedModul(e.target.value));

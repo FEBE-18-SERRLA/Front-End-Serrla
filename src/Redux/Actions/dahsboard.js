@@ -31,12 +31,11 @@ export const postModulDashboard = (courseId) => {
     let id = localStorage.getItem("id");
     if (token) {
       const modul = await axios.post(
-        `https://tesbe-production.up.railway.app/users/${id}/my_dashboards`,
+        `https://serrla-api.up.railway.app/users/${id}/my_dashboards`,
         {
           course_id: courseId,
         }
       );
-      console.log("modul", modul);
       dispatch(postModulDashboardSuccess(modul.data.data));
     }
   };
@@ -49,7 +48,7 @@ export const getModulDashboard = () => {
     let id = localStorage.getItem("id");
     if (token) {
       const modul = await axios.get(
-        `https://tesbe-production.up.railway.app/users/${id}/my_dashboards`
+        `https://serrla-api.up.railway.app/users/${id}/my_dashboards`
       );
       dispatch(getModulDashboardSuccess(modul.data.data));
     }

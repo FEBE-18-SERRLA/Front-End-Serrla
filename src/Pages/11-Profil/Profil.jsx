@@ -19,7 +19,7 @@ const Profil = () => {
     let id = localStorage.getItem("id");
     if (token) {
       axios
-        .get(`https://tesbe-production.up.railway.app/users/${id}`)
+        .get(`https://serrla-api.up.railway.app/users/${id}`)
         .then((res) => {
           dispatch(getUserByIdSuccess(res.data));
           setIsloading(true);

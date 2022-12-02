@@ -12,7 +12,7 @@ export const getSchoolSuccess = (school) => {
 export const getSchool = () => {
   return (dispatch) => {
     axios
-      .get("https://tesbe-production.up.railway.app/schools")
+      .get("https://serrla-api.up.railway.app/schools")
       .then((response) => {
         dispatch(getSchoolSuccess(response.data));
       })

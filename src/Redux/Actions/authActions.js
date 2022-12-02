@@ -36,7 +36,7 @@ export const postSignInFailure = (error) => {
 export const signUp = (user) => {
   return async (dispatch) => {
     const response = await axios.post(
-      "https://tesbe-production.up.railway.app/users",
+      "https://serrla-api.up.railway.app/users",
       user,
       {
         headers: {
@@ -54,7 +54,7 @@ export const signIn = (email, password) => {
     dispatch(signInStart());
     axios
       .post(
-        "https://tesbe-production.up.railway.app/auth/login",
+        "https://serrla-api.up.railway.app/auth/login",
         {
           email,
           password,
@@ -73,9 +73,7 @@ export const signIn = (email, password) => {
         localStorage.setItem("id", JSON.stringify(res.data.data.id));
         // mengambil data user
         axios
-          .get(
-            `https://tesbe-production.up.railway.app/users/${res.data.data.id}`
-          )
+          .get(`https://serrla-api.up.railway.app/users/${res.data.data.id}`)
           .then((res) => {
             dispatch(postSignInSuccess(token, res.data.data));
           });

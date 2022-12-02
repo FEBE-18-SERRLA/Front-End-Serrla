@@ -20,12 +20,9 @@ const DetailModul = () => {
   useEffect(() => {
     dispatch(getDetailModul(id));
     setLoading(true);
-
-    console.log(contents);
   }, []);
 
   const handleClickAside = (e, idxContent) => {
-    console.log(idxContent);
     const { title, description, image, video } = modul.modules[idxContent];
     if (video) {
       response.current.innerHTML = ReactDOMServer.renderToString(
@@ -73,19 +70,19 @@ const DetailModul = () => {
                       );
                     })}
                   <li className="list-span" data-list="5">
-										<Link
-											className="text-black text-decoration-none"
-											to={`/modul/detail-modul/${id}/test`}
-											onClick={() => {
-												localStorage.setItem(
-													"listAsideActiveFromDetailModul",
-													id
-												);
-											}}
-										>
-											5. Quiz
-										</Link>
-									</li>
+                    <Link
+                      className="text-black text-decoration-none"
+                      to={`/modul/detail-modul/${id}/test`}
+                      onClick={() => {
+                        localStorage.setItem(
+                          "listAsideActiveFromDetailModul",
+                          id
+                        );
+                      }}
+                    >
+                      5. Quiz
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </aside>

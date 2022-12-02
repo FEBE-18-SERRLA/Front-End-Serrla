@@ -44,9 +44,7 @@ const getDetailModulSuccess = (detailModul) => {
 export const getModul = () => {
   return async (dispatch) => {
     dispatch(fetchStart());
-    const modul = await axios.get(
-      "https://tesbe-production.up.railway.app/courses"
-    );
+    const modul = await axios.get("https://serrla-api.up.railway.app/courses");
     dispatch(getModulSuccess(modul.data.data));
   };
 };
@@ -54,7 +52,7 @@ export const getModul = () => {
 export const getSearchedModul = (search) => {
   return async (dispatch) => {
     const searchModulData = await axios.get(
-      `https://tesbe-production.up.railway.app/courses/search?keyword=${search}`
+      `https://serrla-api.up.railway.app/courses/search?keyword=${search}`
     );
     dispatch(searchModul(searchModulData.data.data));
   };
@@ -64,11 +62,8 @@ export const getFilteredModul = (category) => {
   return async (dispatch) => {
     dispatch(fetchStart());
     const filterModulData = await axios.get(
-      `https://tesbe-production.up.railway.app/courses/filter?track=${
-        category ?? ""
-      }`
+      `https://serrla-api.up.railway.app/courses/filter?track=${category ?? ""}`
     );
-    console.log("filterModulData", filterModulData.data.data);
     dispatch(filterModul(filterModulData.data.data));
   };
 };
@@ -77,7 +72,7 @@ export const getDetailModul = (id) => {
   return async (dispatch) => {
     dispatch(fetchStart());
     const modul = await axios.get(
-      `https://tesbe-production.up.railway.app/courses/${id}`
+      `https://serrla-api.up.railway.app/courses/${id}`
     );
     dispatch(getDetailModulSuccess(modul.data.data));
   };

@@ -17,14 +17,13 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const { modulDashboard, isLoading } = useSelector((state) => state.dashboard);
 
-  console.log("modulDashboard", modulDashboard);
   useEffect(() => {
     let token = localStorage.getItem("token");
     let id = localStorage.getItem("id");
     dispatch(getModul());
     if (token) {
       axios
-        .get(`https://tesbe-production.up.railway.app/users/${id}`)
+        .get(`https://serrla-api.up.railway.app/users/${id}`)
         .then((res) => {
           dispatch(getUserByIdSuccess(res.data));
           setIsloading(true);
@@ -69,7 +68,6 @@ const Dashboard = () => {
                       <span>Loading........</span>
                     ) : (
                       modulDashboard?.map((item) => {
-                        console.log("item", item);
                         return (
                           <CardModulDashborad
                             gambar={item.course.image}
