@@ -1,70 +1,176 @@
-# Getting Started with Create React App
+<p align="center">
+  <a href="https://serrla-academy.vercel.app/">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/logo512.png" alt="Logo" width=350 height=60>
+  </a>
+  <p align="center">
+    SERRLA (Serrum Learning App) : Aplikasi Berbasis Web pembelajaran seni &middot; Aplikasi ini dapat diakses <a href="https://serrla-academy.vercel.app/">di sini</a>
+  </p>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of contents
 
-## Available Scripts
+- [About](#about)
+- [Feature](#feature)
+- [Sign-In Page] (#sign-in-page)
+- [Sign-Up Page] (#sign-up-page) 
+- [Home Page](#home-page)
+- [Tentang Page] (#tentang-page)
+- [Kontak Page] (#kontak-page)
+- [Modul Page](#modul-page)
+- [Detail-Modul Page] (#detail-modul-page)
+- [Event Page](#sharing-page)
+- [Dashboard Page](#belanja-page)
+- [Profil Page](#admin-page)
+- [Prototype](#prototype)
+- [Credit](#credit)
+- [Link Deploy](#link-deploy)
+- [Creator](#creator)
 
-In the project directory, you can run:
+## About
 
-### `npm start`
+Serrum Learning App (Serrla) adalah aplikasi untuk membantu dalam mengakomodir ketertarikan, minat, bakat dan potensi masing-masing siswa agar dapat mengartikulasikannya ke dalam medium seni melalui sebuah inovasi digital. Dengan Serrla, siswa dapat belajar dengan modul pembelajaran seni yang berkualitas, mengerjakan quiz seni untuk mengasah kemampuan, dan mendapatkan informasi terbaru tentang event-event seni menarik yang akan diadakan !
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Feature
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Pengguna dapat mencari dan mengakses modul pembelajaran seni yang ingin dipelajari serta quiz yang dapat dikerjakan
+- Pengguna dapat melakukan sign-up dan login
+- Pengguna dapat melihat event-event seni terbaru yang akan diadakan dan menandakannya kedalam event favorit pilihannya dengan fitur like
+- Pengguna dapat melihat modul yang sudah di pelajari dan event yang di like di dalam menu dashboard
+- Pengguna dapat mengedit data profil/user pada halaman profil
 
-### `npm test`
+## Sign-In Page
+- Versi Dekstop
+  <p align="center">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-signin.jpg">
+  </p>
+- Versi Mobile
+  <p align="center">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-signin.jpg" height=400>
+  </p>
+  
+## Sign-Up Page
+- Versi Dekstop
+  <p align="center">
+    <img src="">
+  </p>
+- Versi Mobile
+  <p align="center">
+    <img src="" height=400>
+  </p>
+  
+## Home Page
+- Before Login
+  - Versi Dekstop
+    <p align="center">
+      <img src="">
+    </p>
+  - Versi Mobile
+    <p align="center">
+      <img src="" height=400>
+    </p>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- After Login
+  - Versi Dekstop
+    <p align="center">
+      <img src="">
+    </p>
+  - Versi Mobile
+    <p align="center">
+      <img src="" height=400>
+    </p>
+  
+## Tentang Page
+- Versi Dekstop
+  <p align="center">
+    <img src="">
+  </p>
+- Versi Mobile
+  <p align="center">
+    <img src="" height=400>
+  </p>
 
-### `npm run build`
+## Kontak Page
+- Versi Dekstop
+  <p align="center">
+    <img src="">
+  </p>
+- Versi Mobile
+  <p align="center">
+    <img src="" height=400>
+  </p>
+  
+## Modul Page
+- Versi Dekstop
+  <p align="center">
+    <img src="">
+  </p>
+- Versi Mobile
+  <p align="center">
+    <img src="" height=400>
+  </p>
+  
+## Detail-Modul Page
+- Versi Dekstop
+  <p align="center">
+    <img src="">
+  </p>
+- Versi Mobile
+  <p align="center">
+    <img src="" height=400>
+  </p>
+  
+## Event Page
+- Versi Dekstop
+  <p align="center">
+    <img src="">
+  </p>
+- Versi Mobile
+  <p align="center">
+    <img src="" height=400>
+  </p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Dashboard Page
+- Versi Dekstop
+  <p align="center">
+    <img src="">
+  </p>
+- Versi Mobile
+  <p align="center">
+    <img src="" height=400>
+  </p>
+  
+## Profil Page
+- Versi Dekstop
+  <p align="center">
+    <img src="">
+  </p>
+- Versi Mobile
+  <p align="center">
+    <img src="" height=400>
+  </p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Prototype
+- https://www.figma.com/file/dzJBsgIW7KfnN89Ao6y3zD/Final-Design-Serrla?node-id=0%3A1&t=D6i0FEkf68Qz11Hw-1
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Credit
+- <a href="https://getbootstrap.com/"> Bootstrap 5 </a> 
+- <a href="https://reactjs.org/"> React JS </a> 
+- <a href="https://react-redux.js.org/"> React Redux </a> 
+- <a href="https://swiperjs.com/"> Swiper </a> 
+- <a href="https://axios-http.com/docs/intro"> Axios </a> 
+- <a href="https://jestjs.io/"> Jest </a> 
+- <a href="https://web.dev/vitals/"> Web Vitals </a> 
+- <a href="https://eslint.org/"> Eslint </a> 
+- <a href="https://www.figma.com/"> Figma </a> 
+- <a href="https://sweetalert2.github.io/"> SweetAlert2 </a> 
 
-### `npm run eject`
+## Link Deploy
+- https://serrla-academy.vercel.app/
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Creator
+- <a href="https://github.com/marselinusphs"> Marselinus Putu Harry Setyawan </a>
+- <a href="https://github.com/nolafarah"> Nola Farah Azzahra </a>
+- <a href="https://github.com/rovindaputra12"> Rovinda Putra Kamajaya </a>
+- <a href="https://github.com/ibnucholdun"> Ibnu Choldun </a>
+- <a href="https://github.com/rafidammar"> Rafid Ammar </a>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
