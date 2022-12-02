@@ -4,7 +4,7 @@ export const SIGN_UP = "SIGN_UP";
 export const SIGN_IN_START = "SIGN_IN_START";
 export const SIGN_IN_SUCCESS = "SIGN_IN_SUCCESS";
 export const SIGN_IN_FAILURE = "SIGN_IN_FAILURE";
-export const GET_USER = "GET_USER";
+export const SIGN_OUT = "SIGN_OUT";
 
 export const postSignUpSuccess = (user) => {
   return {
@@ -30,6 +30,12 @@ export const postSignInFailure = (error) => {
   return {
     type: SIGN_IN_FAILURE,
     error,
+  };
+};
+
+export const signOutSuccess = () => {
+  return {
+    type: SIGN_OUT,
   };
 };
 
@@ -80,4 +86,10 @@ export const signIn = (email, password) => {
       })
       .catch((err) => dispatch(postSignInFailure(err.response.data.message)));
   };
+};
+
+export const signOut = () => (dispatch) => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("id");
+  dispatch(signOutSuccess());
 };

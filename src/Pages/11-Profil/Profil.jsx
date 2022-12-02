@@ -271,7 +271,7 @@ const Profil = () => {
                           type="submit"
                           className="btn"
                           style={{ backgroundColor: "#005387", color: "#fff" }}
-                          onClick={handleSubmit}
+                          // onClick={handleSubmit}
                         >
                           Simpan
                         </button>
