@@ -1,0 +1,17 @@
+export { default as LandingPage } from "./01-LandingPage/LandingPage";
+export { default as SignUp } from "./02-SignUp/SignUp";
+export { default as SignIn } from "./03-SignIn/SignIn";
+export { default as Home } from "./04-HomePage/Home";
+export { default as Modul } from "./05-ModulPage/Modul";
+export { default as DetailModul } from "./06-DetailModulPage/DetailModul";
+export { default as DetailQuiz } from "./DetailQuizPage/DetailQuizPage";
+export { default as About } from "./07-AboutPage/About";
+export { default as Contact } from "./08-ContactPage/Contact";
+export { default as Dashboard } from "./09-Dashboard/Dashboard";
+export { default as ModulSaya } from "./10-ModulSaya/ModulSaya";
+export { default as Profil } from "./11-Profil/Profil";
+export { default as Katasandi } from "./12-Katasandi/Katasandi";
+export { default as Event } from "./13-EventPage/EventPage";
+export { default as EventFavorite } from "./14-EventFavorite/EventFavorite";
+export { default as Unauthorized } from "./15-Unauthorized/Unauthorized";
+export { default as NotFound } from "./16-NotFound/NotFound";

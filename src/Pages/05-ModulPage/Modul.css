@@ -1,0 +1,38 @@
+/* SEARCH SECTION */
+.search-section{
+    background-color: #E9D0BA;
+    padding: 50px 0;
+    height: 300px;
+}
+
+/* LIST CLASS SECTION */
+.filter-side .filter{
+    background-color: #FDF5E8;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.filter .btn-filter{
+    background-color: #005387;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.filter .btn-filter:hover{
+    background-color: #fff;
+    color: #005387;
+    border: 1px solid #005387;
+}
+
+@media screen and (max-width: 768px){
+    .search-section{
+        height: 250px;
+    }
+
+    .filter-item .form-check{
+        display: inline-block;
+    }
+}

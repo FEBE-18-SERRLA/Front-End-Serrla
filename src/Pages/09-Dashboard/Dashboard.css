@@ -1,0 +1,21 @@
+.container-header-dashboard {
+  background-color: #fdf5e8;
+  height: 200px;
+}
+
+@media screen and (max-width: 768px) {
+  .container-header-dashboard {
+    height: 100px;
+  }
+  .text-header-dashboard {
+    font-size: 18px;
+  }
+
+  .text-content-dashboard {
+    font-size: 8px;
+  }
+
+  .title-dashboard {
+    font-size: 18px;
+  }
+}

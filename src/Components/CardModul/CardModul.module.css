@@ -1,0 +1,27 @@
+.card-text {
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.kategori {
+  font-size: 12px;
+}
+
+.card-image {
+  height: 150px;
+}
+
+.btn-card {
+  background-color: #005387;
+  color: #fff;
+  border: none;
+}
+
+.btn-card:hover {
+  background-color: #fff;
+  color: #005387;
+  border: 1px solid #005387;
+}
