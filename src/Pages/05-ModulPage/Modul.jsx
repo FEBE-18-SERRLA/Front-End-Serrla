@@ -40,6 +40,8 @@ const Modul = () => {
     dispatch(getSearchedModul(e.target.value));
   };
 
+  // const set = new Set(modul)
+
   return (
     <div>
       <main>
