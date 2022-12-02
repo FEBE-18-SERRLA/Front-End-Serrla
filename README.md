@@ -11,7 +11,7 @@
 
 - [About](#about)
 - [Feature](#feature)
-- [Sign-In Page] (#sign-in-page)
+- [Sign-In Page] (#sign-In Page)
 - [Sign-Up Page] (#sign-up-page) 
 - [Home Page](#home-page)
 - [Tentang Page] (#tentang-page)
