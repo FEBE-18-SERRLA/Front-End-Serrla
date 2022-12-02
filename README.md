@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://serrla-academy.vercel.app/">
-    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/logo512.png" alt="Logo" width=350 height=350>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/Logo.png" alt="Logo" width=250 height=250>
   </a>
   <p align="center">
     SERRLA (Serrum Learning App) : Aplikasi Berbasis Web pembelajaran seni &middot; Aplikasi ini dapat diakses <a href="https://serrla-academy.vercel.app/">di sini</a>
