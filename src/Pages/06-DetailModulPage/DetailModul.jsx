@@ -72,10 +72,10 @@ const DetailModul = () => {
                         />
                       );
                     })}
-                  {/* <li className="list-span" data-list="5">
+                  <li className="list-span" data-list="5">
 										<Link
 											className="text-black text-decoration-none"
-											to={`/quiz/test/${id}`}
+											to={`/modul/detail-modul/${id}/test`}
 											onClick={() => {
 												localStorage.setItem(
 													"listAsideActiveFromDetailModul",
@@ -85,7 +85,7 @@ const DetailModul = () => {
 										>
 											5. Quiz
 										</Link>
-									</li> */}
+									</li>
                 </ul>
               </div>
             </aside>
