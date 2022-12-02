@@ -12,27 +12,46 @@ import useQuery from "../../Hooks/useQuery";
 import "./Modul.css";
 
 const Modul = () => {
-  const query = useQuery();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [filter, setFilter] = useState("");
   const { modul, isLoading } = useSelector((state) => state.modul);
 
-  console.log(modul);
+  const [tracks, setTracks] = useState([]);
+  const [allTracks, setAllTracks] = useState(false);
+
+  const getTracks = async () => {
+    const res = await fetch("https://tesbe-production.up.railway.app/tracks");
+    const json = await res.json();
+
+    setTracks(json.data);
+  };
 
   const submit = (e) => {
     e.preventDefault();
-    navigate(`?q=${filter}`);
+    dispatch(getFilteredModul(filter));
   };
 
   const onChangeFilter = (e) => {
-    const value = e.target.value;
-    setFilter(value);
+    if (e.target.value === "all") {
+      dispatch(getModul());
+    }
+    setFilter(e.target.value);
   };
+
+  // const onChangeAllTracks = (e) => {
+  //   if (e.target.value === "all") {
+  //     dispatch(getModul());
+  //   }
+  // };
 
   useEffect(() => {
     dispatch(getModul());
+    getTracks();
   }, []);
+
+  useEffect(() => {
+    dispatch(getFilteredModul(filter));
+  }, [filter]);
 
   const handleSearch = (e) => {
     dispatch(getSearchedModul(e.target.value));
@@ -43,7 +62,7 @@ const Modul = () => {
       <main>
         <section className="search-section">
           <h1 className="text-center fw-semibold">Modul Yang Tersedia</h1>
-          <p className="text-center  container">
+          <p className="text-center">
             Gali pengetahuan seni dengan mengikuti modul yang tersedia sesuai
             dengan minat dan bakatmu!
           </p>
@@ -68,49 +87,29 @@ const Modul = () => {
                       <h5 className="fw-normal">Kategori</h5>
                       <InputRadioBtn
                         name={"filter"}
-                        checked={filter === ""}
+                        checked={filter === "all"}
                         onChange={onChangeFilter}
-                        label="None"
-                        value={""}
+                        label="Semua"
+                        value="all"
                         id={"Seni_Rupa"}
                         htmlFor={"Seni_Rupa"}
                       />
-                      <InputRadioBtn
-                        name={"filter"}
-                        checked={filter === "Seni Rupa"}
-                        onChange={onChangeFilter}
-                        label="Seni Rupa"
-                        value={"Seni Rupa"}
-                        id={"Seni_Rupa"}
-                        htmlFor={"Seni_Rupa"}
-                      />
-                      <InputRadioBtn
-                        name={"filter"}
-                        checked={filter === "Seni Musik"}
-                        onChange={onChangeFilter}
-                        label="Seni Musik"
-                        value={"Seni Musik"}
-                        id={"Seni_Musik"}
-                        htmlFor={"Seni_Musik"}
-                      />
-                      <InputRadioBtn
-                        name={"filter"}
-                        checked={filter === "Seni Tari"}
-                        onChange={onChangeFilter}
-                        label="Seni Tari"
-                        value={"Seni Tari"}
-                        id={"Seni_Tari"}
-                        htmlFor={"Seni_Tari"}
-                      />
-                      <InputRadioBtn
-                        name={"filter"}
-                        checked={filter === "Seni Teater"}
-                        onChange={onChangeFilter}
-                        label="Seni Teater"
-                        value={"Seni Teater"}
-                        id={"Seni_Teater"}
-                        htmlFor={"Seni_Teater"}
-                      />
+                      {tracks.map((track) => (
+                        <InputRadioBtn
+                          key={track.id}
+                          name="filter"
+                          checked={Number(filter) === Number(track.id)}
+                          onChange={onChangeFilter}
+                          label={track.name}
+                          value={track.id}
+                          id={String(track.name)
+                            .replace(" ", "-")
+                            .toLowerCase()}
+                          htmlFor={String(track.name)
+                            .replace(" ", "-")
+                            .toLowerCase()}
+                        />
+                      ))}
                     </div>
                     <button className="btn btn-filter mt-3">Filter</button>
                   </form>
@@ -120,23 +119,24 @@ const Modul = () => {
                 <div className="row list-modul g-3">
                   {isLoading ? (
                     <span>Loading........</span>
-                  ) : modul?.length > 0 ? (
-                    modul?.map((item) => {
+                  ) : (
+                    modul.map((item) => {
                       return (
                         <div key={item.id} className="col">
                           <CardModul
                             title={item.name}
                             image={item.image}
-                            descript={item.description}
+                            descript={item.description ?? "ssfa"}
                             category={item.track.name}
-                            id={item.id}
-                            style={{ width: "15rem", fontWeight: "400" }}
+                            id={`${item.id}`}
+                            style={{
+                              width: "15rem",
+                              fontWeight: "400",
+                            }}
                           />
                         </div>
                       );
                     })
-                  ) : (
-                    <p className="text-center fs-4">Modul Tidak Ditemukan</p>
                   )}
                 </div>
               </section>
