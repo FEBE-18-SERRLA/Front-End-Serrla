@@ -120,10 +120,10 @@ const LandingPage = () => {
                       return (
                         <SwiperSlide key={item.id}>
                           <CardModul
-                            title={item.title}
+                            title={item.name}
                             image={item.image}
-                            descript={item.descript}
-                            category={item.category}
+                            descript={item.description}
+                            category={item.track.name}
                             id={item.id}
                             style={{ width: "18rem" }}
                           />

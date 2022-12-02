@@ -160,18 +160,14 @@ const Navbar = () => {
                       aria-expanded="false"
                     >
                       <img
-                        src={isloading ? data.picture : PlaceholderUser}
+                        src={data?.picture}
                         alt="foto profil"
                         width="32"
                         height="32"
                         className="rounded-circle"
                       />
                       <p className="d-inline-block ms-2 m-0 text-light">
-                        {isloading === true ? (
-                          data.first_name + " " + data.last_name
-                        ) : (
-                          <span className="visually-hidden">Loading...</span>
-                        )}
+                        {data?.first_name + " " + data?.last_name}
                       </p>
                     </Link>
                     <ul

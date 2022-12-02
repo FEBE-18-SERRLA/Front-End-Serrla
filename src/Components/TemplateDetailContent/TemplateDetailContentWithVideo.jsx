@@ -12,8 +12,8 @@ const TemplateDetailContentWithVideo = ({ title, description, video }) => {
         <div className="card-img-top p-2 card-image">
           <iframe
             className="mx-auto d-block"
-            width="560"
-            height="315"
+            width="760"
+            height="428"
             src={srcVideo}
             title="YouTube video player"
             frameBorder="0"
@@ -21,9 +21,10 @@ const TemplateDetailContentWithVideo = ({ title, description, video }) => {
             allowFullScreen
           ></iframe>
         </div>
-        <p className="w-100" data-description={description}>
+        <div className="w-100 mt-4" data-description={description} dangerouslySetInnerHTML={{ __html:  description }} />
+        {/* <p className="w-100" data-description={description}>
           {description}
-        </p>
+        </p> */}
       </div>
     </>
   );
