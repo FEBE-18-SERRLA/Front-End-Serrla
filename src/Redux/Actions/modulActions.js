@@ -44,13 +44,7 @@ const getDetailModulSuccess = (detailModul) => {
 export const getModul = () => {
   return async (dispatch) => {
     dispatch(fetchStart());
-<<<<<<< HEAD
-    const modul = await axios.get(
-      "https://serrla-api.up.railway.app/courses"
-    );
-=======
     const modul = await axios.get("https://serrla-api.up.railway.app/courses");
->>>>>>> 929ae7dbeec159ec2ad1b6452229f22559193878
     dispatch(getModulSuccess(modul.data.data));
   };
 };
@@ -68,13 +62,7 @@ export const getFilteredModul = (category) => {
   return async (dispatch) => {
     dispatch(fetchStart());
     const filterModulData = await axios.get(
-<<<<<<< HEAD
-      `https://serrla-api.up.railway.app/courses/filter?track=${
-        category ?? ""
-      }`
-=======
       `https://serrla-api.up.railway.app/courses/filter?track=${category ?? ""}`
->>>>>>> 929ae7dbeec159ec2ad1b6452229f22559193878
     );
     dispatch(filterModul(filterModulData.data.data));
   };
