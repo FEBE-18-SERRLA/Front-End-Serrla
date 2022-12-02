@@ -36,7 +36,6 @@ export const postModulDashboard = (courseId) => {
           course_id: courseId,
         }
       );
-      console.log("modul", modul);
       dispatch(postModulDashboardSuccess(modul.data.data));
     }
   };

@@ -17,7 +17,6 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   const { modulDashboard, isLoading } = useSelector((state) => state.dashboard);
 
-  console.log("modulDashboard", modulDashboard);
   useEffect(() => {
     let token = localStorage.getItem("token");
     let id = localStorage.getItem("id");
@@ -69,7 +68,6 @@ const Dashboard = () => {
                       <span>Loading........</span>
                     ) : (
                       modulDashboard?.map((item) => {
-                        console.log("item", item);
                         return (
                           <CardModulDashborad
                             gambar={item.course.image}

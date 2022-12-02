@@ -73,9 +73,7 @@ export const signIn = (email, password) => {
         localStorage.setItem("id", JSON.stringify(res.data.data.id));
         // mengambil data user
         axios
-          .get(
-            `https://serrla-api.up.railway.app/users/${res.data.data.id}`
-          )
+          .get(`https://serrla-api.up.railway.app/users/${res.data.data.id}`)
           .then((res) => {
             dispatch(postSignInSuccess(token, res.data.data));
           });

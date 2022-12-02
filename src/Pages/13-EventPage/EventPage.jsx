@@ -8,7 +8,6 @@ import { AiOutlineHeart } from "react-icons/ai";
 import Swal from "sweetalert2";
 
 const EventPage = () => {
-  const { id } = useParams();
   const data = useSelector((state) => state.event.events);
   const like = useSelector((state) => state.event.like);
   const dispatch = useDispatch();
@@ -19,12 +18,9 @@ const EventPage = () => {
 
   const handleClick = (eventId) => {
     let id = localStorage.getItem("id");
-    axios.post(
-      `https://serrla-api.up.railway.app/users/${id}/favorites`,
-      {
-        event_id: eventId,
-      }
-    );
+    axios.post(`https://serrla-api.up.railway.app/users/${id}/favorites`, {
+      event_id: eventId,
+    });
     Swal.fire({
       icon: "success",
       title: "Berhasil",
