@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import {
   getFilteredModul,
   getModul,
@@ -8,16 +7,13 @@ import {
 } from "../../Redux/Actions/modulActions";
 import InputRadioBtn from "../../Components/InputRadioBtn/InputRadioBtn";
 import CardModul from "../../Components/CardModul/CardModul";
-import useQuery from "../../Hooks/useQuery";
 import "./Modul.css";
 
 const Modul = () => {
   const dispatch = useDispatch();
   const [filter, setFilter] = useState("");
   const { modul, isLoading } = useSelector((state) => state.modul);
-
   const [tracks, setTracks] = useState([]);
-  const [allTracks, setAllTracks] = useState(false);
 
   const getTracks = async () => {
     const res = await fetch("https://tesbe-production.up.railway.app/tracks");
@@ -32,26 +28,13 @@ const Modul = () => {
   };
 
   const onChangeFilter = (e) => {
-    if (e.target.value === "all") {
-      dispatch(getModul());
-    }
     setFilter(e.target.value);
   };
-
-  // const onChangeAllTracks = (e) => {
-  //   if (e.target.value === "all") {
-  //     dispatch(getModul());
-  //   }
-  // };
 
   useEffect(() => {
     dispatch(getModul());
     getTracks();
   }, []);
-
-  useEffect(() => {
-    dispatch(getFilteredModul(filter));
-  }, [filter]);
 
   const handleSearch = (e) => {
     dispatch(getSearchedModul(e.target.value));

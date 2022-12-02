@@ -2,8 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import module from "./CardModul.module.css";
+import { useDispatch } from "react-redux";
+import { postModulDashboard } from "Redux/Actions/dahsboard";
 
 const CardModul = ({ title, image, descript, category, id, style }) => {
+  const dispatch = useDispatch();
+  const handleOnClick = (id) => {
+    dispatch(postModulDashboard(id));
+  };
   return (
     <>
       <div className="swiper-slide">
@@ -24,6 +30,7 @@ const CardModul = ({ title, image, descript, category, id, style }) => {
             <Link
               to={`/modul/detail-modul/${id}`}
               className={`btn ${module["btn-card"]}`}
+              onClick={() => handleOnClick(id)}
             >
               Selengkapnya
             </Link>

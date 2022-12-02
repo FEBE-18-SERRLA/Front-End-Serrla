@@ -9,16 +9,15 @@ import "./Dashboard.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserByIdSuccess } from "Redux/Actions/user";
 import { getModul } from "Redux/Actions/modulActions";
-import CardModul from "../../Components/CardModul/CardModul";
+import { getModulDashboard } from "Redux/Actions/dahsboard";
 
 const Dashboard = () => {
   const { data } = useSelector((state) => state.user.user);
   const [isloading, setIsloading] = useState(false);
   const dispatch = useDispatch();
-  const { modul, setModul } = useSelector((state) => state.modul);
+  const { modulDashboard, isLoading } = useSelector((state) => state.dashboard);
 
-  console.log(modul)
-  
+  console.log("modulDashboard", modulDashboard);
   useEffect(() => {
     let token = localStorage.getItem("token");
     let id = localStorage.getItem("id");
@@ -34,6 +33,10 @@ const Dashboard = () => {
           console.log(err);
         });
     }
+  }, []);
+
+  useEffect(() => {
+    dispatch(getModulDashboard());
   }, []);
 
   return (
@@ -62,24 +65,22 @@ const Dashboard = () => {
                   </article>
                   <article className="container mt-5">
                     <h4 className="fw-bold title-dashboard">Modul Mu</h4>
-                    {setModul ? (
-                    <span>Loading........</span>
-                  ) : modul?.length > 0 ? (
-                    modul?.map((item) => {
-                      return (
-                        <CardModulDashborad
-                          gambar={item.image}
-                          namaModul={item.name}
-                          id={item.id}
-                          namaButton="Lanjutkan Belajar"
-                        />
+                    {isLoading ? (
+                      <span>Loading........</span>
+                    ) : (
+                      modulDashboard?.map((item) => {
+                        console.log("item", item);
+                        return (
+                          <CardModulDashborad
+                            gambar={item.course.image}
+                            namaModul={item.course.name}
+                            id={item.course.id}
+                            namaButton="Lanjutkan Belajar"
+                          />
                         );
-                    })
-                  ) : (
-                    <p className="text-center fs-4">Modul Tidak Ditemukan</p>
-                  )}
+                      })
+                    )}
                   </article>
-                  
                 </div>
               </section>
             </div>

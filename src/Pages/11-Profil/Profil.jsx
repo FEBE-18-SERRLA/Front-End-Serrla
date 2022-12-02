@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import AsideProfil from "Components/AsideProfil/AsideProfil";
 
 import { BsPencilFill } from "react-icons/bs";
-import { PlaceholderUser } from "../../Assets";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { getUserByIdSuccess } from "Redux/Actions/user";
@@ -64,7 +63,7 @@ const Profil = () => {
                       <div className="row align-items-center g-3">
                         <div className="img col-md-3">
                           <img
-                            src={isloading ? data.picture : PlaceholderUser}
+                            src={data?.picture}
                             alt="Foto Profil"
                             width="100px"
                             className="d-inline-block align-text-top rounded-circle"
@@ -96,7 +95,7 @@ const Profil = () => {
                               className="form-control"
                               id="nama-depan"
                               placeholder="Nama-Depan"
-                              defaultValue={isloading ? data.first_name : ""}
+                              defaultValue={data?.first_name}
                             />
                           </div>
                         </div>
@@ -113,7 +112,7 @@ const Profil = () => {
                               className="form-control"
                               id="nama-belakang"
                               placeholder="Nama Belakang"
-                              defaultValue={isloading ? data.last_name : ""}
+                              defaultValue={data?.last_name}
                             />
                           </div>
                         </div>
@@ -132,7 +131,7 @@ const Profil = () => {
                               className="form-control"
                               id="email"
                               placeholder="email"
-                              defaultValue={isloading ? data.email : ""}
+                              defaultValue={data?.email}
                             />
                           </div>
                         </div>
@@ -151,7 +150,7 @@ const Profil = () => {
                             >
                               <option selected>--Pilih Sekolah--</option>
                               {isloading &&
-                                school.map((item, index) => {
+                                school?.map((item, index) => {
                                   return (
                                     <option value={item.id} key={index}>
                                       {item.name}

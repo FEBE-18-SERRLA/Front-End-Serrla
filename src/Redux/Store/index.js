@@ -6,6 +6,7 @@ import authReducer from "../Reducers/authReducers";
 import eventReducer from "Redux/Reducers/event";
 import userReducer from "Redux/Reducers/user";
 import schoolReducer from "Redux/Reducers/school";
+import dashboardReducer from "Redux/Reducers/dashboard";
 
 const allReducer = combineReducers({
   modul: modulReducers,
@@ -14,6 +15,7 @@ const allReducer = combineReducers({
   user: userReducer,
   event: eventReducer,
   school: schoolReducer,
+  dashboard: dashboardReducer,
 });
 
 const store = createStore(allReducer, applyMiddleware(thunk));
