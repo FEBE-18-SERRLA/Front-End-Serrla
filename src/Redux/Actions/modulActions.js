@@ -61,12 +61,14 @@ export const getSearchedModul = (search) => {
 };
 
 export const getFilteredModul = (category) => {
-  const params = category ?? "";
   return async (dispatch) => {
     dispatch(fetchStart());
     const filterModulData = await axios.get(
-      `https://tesbe-production.up.railway.app/courses/courses/filter?track=${params}`
+      `https://tesbe-production.up.railway.app/courses/filter?track=${
+        category ?? ""
+      }`
     );
+    console.log("filterModulData", filterModulData.data.data);
     dispatch(filterModul(filterModulData.data.data));
   };
 };
