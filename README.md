@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://serrla-academy.vercel.app/">
-    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/Logo.png" alt="Logo" width=250 height=250>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/Logo.png" alt="Logo" width=200 height=200>
   </a>
   <p align="center">
     SERRLA (Serrum Learning App) : Aplikasi Berbasis Web pembelajaran seni &middot; Aplikasi ini dapat diakses <a href="https://serrla-academy.vercel.app/">di sini</a>
@@ -11,16 +11,16 @@
 
 - [About](#about)
 - [Feature](#feature)
-- [Sign-In Page] (#sign-In Page)
-- [Sign-Up Page] (#sign-up-page) 
+- [Sign-In Page](#sign-in-page)
+- [Sign-Up Page](#sign-up-page) 
 - [Home Page](#home-page)
-- [Tentang Page] (#tentang-page)
-- [Kontak Page] (#kontak-page)
+- [Tentang Page](#tentang-page)
+- [Kontak Page](#kontak-page)
 - [Modul Page](#modul-page)
-- [Detail-Modul Page] (#detail-modul-page)
-- [Event Page](#sharing-page)
-- [Dashboard Page](#belanja-page)
-- [Profil Page](#admin-page)
+- [Detail-Modul Page](#detail-modul-page)
+- [Event Page](#event-page)
+- [Dashboard Page](#dashboard-page)
+- [Profil Page](#profil-page)
 - [Prototype](#prototype)
 - [Credit](#credit)
 - [Link Deploy](#link-deploy)
@@ -51,102 +51,110 @@ Serrum Learning App (Serrla) adalah aplikasi untuk membantu dalam mengakomodir k
 ## Sign-Up Page
 - Versi Dekstop
   <p align="center">
-    <img src="">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-signup.jpg">
   </p>
 - Versi Mobile
   <p align="center">
-    <img src="" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-signup.jpg" height=400>
   </p>
   
 ## Home Page
 - Before Login
   - Versi Dekstop
     <p align="center">
-      <img src="">
+      <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-hompage-beforelogin-1.jpg">
+      <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-hompage-beforelogin-2.jpg">
+      <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-hompage-beforelogin-3.jpg">
     </p>
   - Versi Mobile
     <p align="center">
-      <img src="" height=400>
+      <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-home-beforelogin.jpg" height=400>
     </p>
 
 - After Login
   - Versi Dekstop
     <p align="center">
-      <img src="">
-    </p>
-  - Versi Mobile
-    <p align="center">
-      <img src="" height=400>
+      <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-home-afterlogin-1.jpg">
+      <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-home-afterlogin-2.jpg">
     </p>
   
 ## Tentang Page
 - Versi Dekstop
   <p align="center">
-    <img src="">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-tentang-1.jpg">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-tentang-2.jpg">
   </p>
 - Versi Mobile
   <p align="center">
-    <img src="" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-tentang-1.jpg" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-tentang-2.jpg" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-tentang-3.jpg" height=400>
   </p>
 
 ## Kontak Page
 - Versi Dekstop
   <p align="center">
-    <img src="">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-kontak.jpg">
   </p>
 - Versi Mobile
   <p align="center">
-    <img src="" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-kontak.jpg" height=400>
   </p>
   
 ## Modul Page
 - Versi Dekstop
   <p align="center">
-    <img src="">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-modul.jpg">
   </p>
 - Versi Mobile
   <p align="center">
-    <img src="" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-modul.jpg" height=400>
   </p>
   
 ## Detail-Modul Page
 - Versi Dekstop
   <p align="center">
-    <img src="">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-detailmodul.jpg">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-detailmodul-quiz.jpg">
   </p>
 - Versi Mobile
   <p align="center">
-    <img src="" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-detail-modul-1.jpg" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-detail-modul-2.jpg" height=400>
   </p>
   
 ## Event Page
 - Versi Dekstop
   <p align="center">
-    <img src="">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-event.jpg">
   </p>
 - Versi Mobile
   <p align="center">
-    <img src="" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-event.jpg" height=400>
   </p>
 
 ## Dashboard Page
 - Versi Dekstop
   <p align="center">
-    <img src="">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-dashboard-1.jpg">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-dashboard-2.jpg">
   </p>
 - Versi Mobile
   <p align="center">
-    <img src="" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-dashboard-1.jpg" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-dashboard-2.jpg" height=400>
   </p>
   
 ## Profil Page
 - Versi Dekstop
   <p align="center">
-    <img src="">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-profil-1.jpg">
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/desktop-profil-2.jpg">
   </p>
 - Versi Mobile
   <p align="center">
-    <img src="" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-profil-1.jpg" height=400>
+    <img src="https://github.com/FEBE-18-SERRLA/Front-End-Serrla/blob/master/public/ss/mobile-profil-2.jpg" height=400>
   </p>
 
 ## Prototype
