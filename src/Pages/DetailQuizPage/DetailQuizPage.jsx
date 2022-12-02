@@ -25,7 +25,7 @@ function DetailQuizPage(title) {
 
 	const getTestDetail = async () => {
 		const res = await fetch(
-			`https://tesbe-production.up.railway.app/courses/${id}/tests/1`
+			`https://serrla-api.up.railway.app/courses/${id}/tests/1`
 		);
 		const data = await res.json();
 
@@ -34,7 +34,7 @@ function DetailQuizPage(title) {
 
 	const getQuestions = async () => {
 		const res = await fetch(
-			`https://tesbe-production.up.railway.app/courses/${id}/tests/1/questions`
+			`https://serrla-api.up.railway.app/courses/${id}/tests/1/questions`
 		);
 
 		let data = await res.json();

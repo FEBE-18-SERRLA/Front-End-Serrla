@@ -20,7 +20,7 @@ const EventPage = () => {
   const handleClick = (eventId) => {
     let id = localStorage.getItem("id");
     axios.post(
-      `https://tesbe-production.up.railway.app/users/${id}/favorites`,
+      `https://serrla-api.up.railway.app/users/${id}/favorites`,
       {
         event_id: eventId,
       }

@@ -20,7 +20,7 @@ const Navbar = () => {
     let id = localStorage.getItem("id");
     if (token) {
       axios
-        .get(`https://tesbe-production.up.railway.app/users/${id}`)
+        .get(`https://serrla-api.up.railway.app/users/${id}`)
         .then((res) => {
           dispacth(getUserByIdSuccess(res.data));
           setIsloading(true);

@@ -16,7 +16,7 @@ const Modul = () => {
   const [tracks, setTracks] = useState([]);
 
   const getTracks = async () => {
-    const res = await fetch("https://tesbe-production.up.railway.app/tracks");
+    const res = await fetch("https://serrla-api.up.railway.app/tracks");
     const json = await res.json();
 
     setTracks(json.data);

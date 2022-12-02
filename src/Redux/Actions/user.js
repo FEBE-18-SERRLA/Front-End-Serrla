@@ -20,7 +20,7 @@ export const getUserByIdSuccess = (user) => {
 export const getAllUsers = () => {
   return async (dispatch) => {
     const response = await axios.get(
-      "https://tesbe-production.up.railway.app/users"
+      "https://serrla-api.up.railway.app/users"
     );
     dispatch(getAllUsersSuccess(response.data));
   };

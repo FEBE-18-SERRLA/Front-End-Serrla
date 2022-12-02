@@ -21,7 +21,7 @@ export const getInstructur = () => {
   return async (dispatch) => {
     dispatch(fetchStart());
     const instructur = await axios.get(
-      "https://tesbe-production.up.railway.app/instructures"
+      "https://serrla-api.up.railway.app/instructures"
     );
     dispatch(getInstructurSuccess(instructur.data.data));
   };

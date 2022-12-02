@@ -36,7 +36,7 @@ export const getEvents = () => {
   return async (dispatch) => {
     dispatch(fetchStart());
     const response = await axios.get(
-      "https://tesbe-production.up.railway.app/events"
+      "https://serrla-api.up.railway.app/events"
     );
     dispatch(getEventsSuccess(response.data.data));
     const data = response.data.data;
@@ -62,7 +62,7 @@ export const getEventFavorites = () => {
     let id = localStorage.getItem("id");
     if (token) {
       axios
-        .get(`https://tesbe-production.up.railway.app/users/${id}/favorites`)
+        .get(`https://serrla-api.up.railway.app/users/${id}/favorites`)
         .then((response) => {
           dispatch(getEventFavoritesSuccess(response.data.data));
         })

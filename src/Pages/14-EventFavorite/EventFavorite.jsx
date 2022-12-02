@@ -20,7 +20,7 @@ const EventFavorite = () => {
   const handleClick = (eventId) => {
     let id = localStorage.getItem("id");
     axios.delete(
-      `https://tesbe-production.up.railway.app/users/${id}/favorites/${eventId}`
+      `https://serrla-api.up.railway.app/users/${id}/favorites/${eventId}`
     );
     Swal.fire({
       icon: "success",
