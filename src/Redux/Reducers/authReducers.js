@@ -3,7 +3,7 @@ import {
   SIGN_IN_START,
   SIGN_IN_SUCCESS,
   SIGN_IN_FAILURE,
-  GET_USER,
+  SIGN_OUT,
 } from "../Actions/authActions";
 
 const initialState = {
@@ -38,6 +38,14 @@ const authReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.error,
+      };
+
+    case SIGN_OUT:
+      return {
+        ...state,
+        token: null,
+        user: null,
+        id: null,
       };
 
     default:

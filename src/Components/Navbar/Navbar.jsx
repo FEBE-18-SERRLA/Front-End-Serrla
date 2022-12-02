@@ -3,13 +3,14 @@ import axios from "axios";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { RiLogoutBoxRLine } from "react-icons/ri";
-import { Logo, PlaceholderUser } from "../../Assets";
+import { Logo } from "../../Assets";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserByIdSuccess } from "Redux/Actions/user";
+import { signOut } from "Redux/Actions/authActions";
 import "./Navbar.css";
 
 const Navbar = () => {
-  const isLogin = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
   const dispacth = useDispatch();
   const navigate = useNavigate();
   const { data } = useSelector((state) => state.user.user);
@@ -32,9 +33,10 @@ const Navbar = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    dispacth(signOut());
     navigate("/");
   };
+
   return (
     <header className="sticky-top">
       <nav className="navbar navbar-expand-lg p-2 nav-header">
@@ -59,7 +61,7 @@ const Navbar = () => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse " id="navbarNav">
-            {isLogin === null ? (
+            {token === null ? (
               <>
                 <ul className="navbar-nav mx-auto">
                   <li className="nav-item h5 m-0">

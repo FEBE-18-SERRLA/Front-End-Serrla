@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AsideProfil from "Components/AsideProfil/AsideProfil";
 
 import { BsPencilFill } from "react-icons/bs";
@@ -13,6 +13,7 @@ const Profil = () => {
   const { data } = useSelector((state) => state.user.user);
   const school = useSelector((state) => state.school.school.data);
   const [isloading, setIsloading] = useState(false);
+  const form = useRef(null);
 
   useEffect(() => {
     let token = localStorage.getItem("token");
@@ -34,6 +35,39 @@ const Profil = () => {
     dispatch(getSchool());
   }, []);
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const formData = form.current;
+  //   console.log(formData["jenis-kelamin"].value);
+  //   let token = localStorage.getItem("token");
+  //   let id = localStorage.getItem("id");
+  //   if (token) {
+  //     axios
+  //       .put(
+  //         `https://serrla-api.up.railway.app/users/${id}`,
+  //         {
+  //           first_name: formData.firstName.value,
+  //           last_name: formData.lastName.value,
+  //           email: formData.email.value,
+  //           telp: formData.telp.value,
+  //           school_id: formData.school.value,
+  //           birthdate: formData.birthDate.value,
+  //         },
+  //         {
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Accept: "application/json",
+  //           },
+  //         }
+  //       )
+  //       .then((res) => {
+  //         console.log(res.data);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // };
   return (
     <>
       <main>
@@ -95,6 +129,7 @@ const Profil = () => {
                               className="form-control"
                               id="nama-depan"
                               placeholder="Nama-Depan"
+                              name="firstName"
                               defaultValue={data?.first_name}
                             />
                           </div>
@@ -112,6 +147,7 @@ const Profil = () => {
                               className="form-control"
                               id="nama-belakang"
                               placeholder="Nama Belakang"
+                              name="lastName"
                               defaultValue={data?.last_name}
                             />
                           </div>
@@ -131,6 +167,7 @@ const Profil = () => {
                               className="form-control"
                               id="email"
                               placeholder="email"
+                              name="email"
                               defaultValue={data?.email}
                             />
                           </div>
@@ -144,7 +181,7 @@ const Profil = () => {
                               Sekolah
                             </label>
                             <select
-                              name="sekolah"
+                              name="school"
                               id="sekolah"
                               className="form-select form-select mb-3"
                             >
@@ -205,6 +242,7 @@ const Profil = () => {
                               pattern="[0-9]{12}"
                               className="form-control"
                               id="no-telp"
+                              name="telp"
                               required
                             />
                           </div>
@@ -223,6 +261,7 @@ const Profil = () => {
                               type="date"
                               className="form-control"
                               id="tanggal-lahir"
+                              name="birthDate"
                             />
                           </div>
                         </div>
@@ -232,6 +271,7 @@ const Profil = () => {
                           type="submit"
                           className="btn"
                           style={{ backgroundColor: "#005387", color: "#fff" }}
+                          // onClick={handleSubmit}
                         >
                           Simpan
                         </button>
