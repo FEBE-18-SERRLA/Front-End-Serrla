@@ -28,7 +28,6 @@ function DetailQuizPage(title) {
       `https://serrla-api.up.railway.app/courses/${id}/tests/1`
     );
     const data = await res.json();
-
     setTestName(`id: ${data.data && data.data[0].id}`);
   };
 
@@ -36,9 +35,7 @@ function DetailQuizPage(title) {
     const res = await fetch(
       `https://serrla-api.up.railway.app/courses/${id}/tests/1/questions`
     );
-
     let data = await res.json();
-
     setQuestions(data);
   };
 

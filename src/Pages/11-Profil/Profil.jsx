@@ -202,7 +202,7 @@ const Profil = () => {
                             </label>
                             <input
                               type="tel"
-                              pattern="^\d{3}-\d{3}-\d{4}$"
+                              pattern="[0-9]{12}"
                               className="form-control"
                               id="no-telp"
                               required
