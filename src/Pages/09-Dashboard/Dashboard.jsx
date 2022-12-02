@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 import { Gambar6 } from "../../Assets";
 import CardModulDashborad from "Components/CardModulDashboard/CardModulDashborad";
 import AsideDashboard from "Components/AsideDashboard/AsideDashboard";
 
 import "./Dashboard.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserByIdSuccess } from "Redux/Actions/user";
 
 const Dashboard = () => {
+  const { data } = useSelector((state) => state.user.user);
+  const [isloading, setIsloading] = useState(false);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    let token = localStorage.getItem("token");
+    let id = localStorage.getItem("id");
+    if (token) {
+      axios
+        .get(`https://tesbe-production.up.railway.app/users/${id}`)
+        .then((res) => {
+          dispatch(getUserByIdSuccess(res.data));
+          setIsloading(true);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
+
   return (
     <>
       <main>
@@ -24,7 +47,7 @@ const Dashboard = () => {
                   <article className="container d-flex align-items-center rounded container-header-dashboard">
                     <div className="container px-sm-5">
                       <h1 className="fw-bold text-header-dashboard">
-                        Hallo, Nama user!
+                        Hallo, {data?.first_name + " " + data?.last_name}
                       </h1>
                       <p className="text-content-dashboard">
                         Semoga aktivitas belajarmu menyenangkan.
