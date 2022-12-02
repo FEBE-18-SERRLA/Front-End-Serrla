@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -19,12 +19,17 @@ const Home = () => {
   const dispatch = useDispatch();
   const { modul, isLoading } = useSelector((state) => state.modul);
   const { instructur } = useSelector((state) => state.instructur);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(!loading);
     dispatch(getModul());
     dispatch(getInstructur());
   }, []);
 
+  if (loading) {
+    return <></>;
+  }
   return (
     <div>
       <main>
