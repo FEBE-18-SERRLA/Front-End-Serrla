@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { getEvents } from "Redux/Actions/event";
 import CardEvent from "../../Components/CardEvent/CardEvent";
 import { AiOutlineHeart } from "react-icons/ai";

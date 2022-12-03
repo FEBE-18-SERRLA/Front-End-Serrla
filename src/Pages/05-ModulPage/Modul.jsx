@@ -107,7 +107,7 @@ const Modul = () => {
                 <div className="row list-modul g-3">
                   {isLoading ? (
                     <span>Loading........</span>
-                  ) : (
+                  ) : modul.length > 0 ? (
                     modul.map((item) => {
                       return (
                         <div key={item.id} className="col">
@@ -125,6 +125,8 @@ const Modul = () => {
                         </div>
                       );
                     })
+                  ) : (
+                    <h1 className="text-center">Modul Tidak Ditemukan</h1>
                   )}
                 </div>
               </section>

@@ -19,7 +19,6 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const dispacth = useDispatch();
   const user = useSelector((state) => state.user.user.data);
-  console.log(user);
 
   useEffect(() => {
     gapi.load("client:auth2", () => {

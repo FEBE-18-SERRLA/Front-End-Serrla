@@ -1,7 +1,8 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function CardQuiz({image, title, id}) {
+function CardQuiz({ image, title, id }) {
   return (
     <>
       <div className="card">
@@ -26,7 +27,11 @@ function CardQuiz({image, title, id}) {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default CardQuiz
+CardQuiz.propTypes = {
+  image: PropTypes.string,
+  title: PropTypes.string,
+};
+export default CardQuiz;

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Gambar6 } from "../../Assets";
 import CardModulDashborad from "Components/CardModulDashboard/CardModulDashborad";
 import AsideDashboard from "Components/AsideDashboard/AsideDashboard";
 
@@ -74,6 +73,7 @@ const Dashboard = () => {
                             namaModul={item.course.name}
                             id={item.course.id}
                             namaButton="Lanjutkan Belajar"
+                            key={item.course.id}
                           />
                         );
                       })
