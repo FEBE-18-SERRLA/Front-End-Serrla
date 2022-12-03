@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const TemplateDetailContentWithVideo = ({ title, description, video }) => {
-  const srcVideo = video.replace("watch?v=", "embed/")
+  const srcVideo = video.replace("watch?v=", "embed/");
 
   return (
     <>
@@ -21,13 +22,20 @@ const TemplateDetailContentWithVideo = ({ title, description, video }) => {
             allowFullScreen
           ></iframe>
         </div>
-        <div className="w-100 mt-4" data-description={description} dangerouslySetInnerHTML={{ __html:  description }} />
-        {/* <p className="w-100" data-description={description}>
-          {description}
-        </p> */}
+        <div
+          className="w-100 mt-4"
+          data-description={description}
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
       </div>
     </>
   );
+};
+
+TemplateDetailContentWithVideo.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  video: PropTypes.string.isRequired,
 };
 
 export default TemplateDetailContentWithVideo;

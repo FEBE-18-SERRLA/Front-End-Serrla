@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Gambar1, Gambar2, VectorOval, Vector2, Vector3 } from "../../Assets";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getModul } from "../../Redux/Actions/modulActions";
 import { getInstructur } from "../../Redux/Actions/instructurActions";
@@ -42,9 +43,9 @@ const LandingPage = () => {
                   Gali minat dan bakatmu bersama Serrla dengan pemateri yang
                   handal di bidangnya
                 </p>
-                <button className={`btn ${module["btn-hero"]}`}>
+                <Link className={`btn ${module["btn-hero"]}`} to="/sign-up">
                   Mulai Sekarang
-                </button>
+                </Link>
               </div>
               <div className={`col-md-6 ${module["hero-section-img"]}`}>
                 <img src={Gambar1} alt="hero" className="img-fluid" />

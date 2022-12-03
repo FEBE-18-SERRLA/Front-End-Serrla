@@ -46,7 +46,6 @@ CardModul.propTypes = {
   image: PropTypes.string.isRequired,
   descript: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
   style: PropTypes.object,
 };
 export default CardModul;

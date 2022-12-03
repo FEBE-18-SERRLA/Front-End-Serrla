@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const TemplateDetailContent = ({ image, title, description }) => {
   return (
@@ -21,6 +22,12 @@ const TemplateDetailContent = ({ image, title, description }) => {
       </div>
     </>
   );
+};
+
+TemplateDetailContent.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default TemplateDetailContent;

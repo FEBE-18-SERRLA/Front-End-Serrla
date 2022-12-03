@@ -7,6 +7,7 @@ import { Logo } from "../../Assets";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserByIdSuccess } from "Redux/Actions/user";
 import { signOut } from "Redux/Actions/authActions";
+import Swal from "sweetalert2";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -34,7 +35,14 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispacth(signOut());
-    navigate("/");
+    Swal.fire({
+      icon: "success",
+      title: "Logout Success",
+      showConfirmButton: false,
+      timer: 1500,
+    }).then(() => {
+      navigate("/");
+    });
   };
 
   return (
