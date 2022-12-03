@@ -26,10 +26,13 @@ const EventFavorite = () => {
       icon: "success",
       title: "Berhasil",
       text: "Event berhasil dihapus dari favorit",
+      showConfirmButton: false,
+      timer: 1500,
     }).then(() => {
       dispatch(getEventFavorites());
     });
   };
+
   return (
     <main>
       <div className="container mb-5">

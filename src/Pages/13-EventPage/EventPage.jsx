@@ -25,8 +25,8 @@ const EventPage = () => {
       icon: "success",
       title: "Berhasil",
       text: "Event berhasil ditambahkan ke favorit",
-    }).then(() => {
-      dispatch(getEvents());
+      showConfirmButton: false,
+      timer: 1500,
     });
   };
 
