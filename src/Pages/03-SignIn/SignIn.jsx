@@ -41,12 +41,11 @@ const SignIn = () => {
       Swal.fire({
         icon: "success",
         title: "Success",
-        text: "Login Berhasil!",
-        confirmButtonText: "OK",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          navigate("/");
-        }
+        text: "Login Success",
+        showConfirmButton: false,
+        timer: 1500,
+      }).then(() => {
+        navigate("/");
       });
     } else {
       Swal.fire({
