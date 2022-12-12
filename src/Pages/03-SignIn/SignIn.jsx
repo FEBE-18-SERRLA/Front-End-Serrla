@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GoogleLogin } from "react-google-login";
 import { gapi } from "gapi-script";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { signIn } from "../../Redux/Actions/authActions";
 import { Gambar4 } from "../../Assets";
-import { getAllUsers } from "Redux/Actions/user";
 import InputText from "../../Components/InputText/InputText";
-import Swal from "sweetalert2";
 import "./SignIn.css";
 
 const SignIn = () => {
   const clientId =
     "1051427066530-j8fjqpmrdnt48riasbe024q3kc2uvijr.apps.googleusercontent.com";
 
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispacth = useDispatch();
-  const user = useSelector((state) => state.user.user.data);
 
   useEffect(() => {
     gapi.load("client:auth2", () => {
@@ -28,31 +24,9 @@ const SignIn = () => {
     });
   });
 
-  useEffect(() => {
-    dispacth(getAllUsers());
-  }, []);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    const findUser = user.find((item) => item.email === email);
-    if (findUser) {
-      dispacth(signIn(email, password));
-      Swal.fire({
-        icon: "success",
-        title: "Success",
-        text: "Login Success",
-        showConfirmButton: false,
-        timer: 1500,
-      }).then(() => {
-        navigate("/");
-      });
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Email or Password is wrong!",
-      });
-    }
+    dispacth(signIn(email, password));
   };
 
   const onSuccess = (res) => {

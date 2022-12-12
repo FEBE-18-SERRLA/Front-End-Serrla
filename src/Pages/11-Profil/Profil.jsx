@@ -7,13 +7,17 @@ import axios from "axios";
 import { getUserByIdSuccess } from "Redux/Actions/user";
 import { getSchool } from "Redux/Actions/school";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const Profil = () => {
   const dispatch = useDispatch();
   const { data } = useSelector((state) => state.user.user);
   const school = useSelector((state) => state.school.school.data);
   const [isloading, setIsloading] = useState(false);
+  const [selectedGender, setSelectedGender] = useState(data?.gender);
   const form = useRef(null);
+  const editUploadImage = useRef(null);
+  const imageProfile = useRef(null);
 
   useEffect(() => {
     let token = localStorage.getItem("token");
@@ -35,39 +39,59 @@ const Profil = () => {
     dispatch(getSchool());
   }, []);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const formData = form.current;
-  //   console.log(formData["jenis-kelamin"].value);
-  //   let token = localStorage.getItem("token");
-  //   let id = localStorage.getItem("id");
-  //   if (token) {
-  //     axios
-  //       .put(
-  //         `https://serrla-api.up.railway.app/users/${id}`,
-  //         {
-  //           first_name: formData.firstName.value,
-  //           last_name: formData.lastName.value,
-  //           email: formData.email.value,
-  //           telp: formData.telp.value,
-  //           school_id: formData.school.value,
-  //           birthdate: formData.birthDate.value,
-  //         },
-  //         {
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //             Accept: "application/json",
-  //           },
-  //         }
-  //       )
-  //       .then((res) => {
-  //         console.log(res.data);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = form.current;
+    let token = localStorage.getItem("token");
+    let id = localStorage.getItem("id");
+    if (token) {
+      axios
+        .put(
+          `https://serrla-api.up.railway.app/users/${id}`,
+          {
+            first_name: formData.firstName.value,
+            last_name: formData.lastName.value,
+            email: formData.email.value,
+            telp: formData.telp.value,
+            birthdate: formData.birthDate.value,
+            picture: formData.picture.value,
+            school_id: formData.school.value,
+            gender: formData.gender.value,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    Swal.fire({
+      icon: "success",
+      title: "Berhasil",
+      text: "Profil berhasil diubah",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.reload();
+      }
+    });
+  };
+
+  const previewImage = () => {
+    const file = editUploadImage.current.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      imageProfile.current.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  };
+
   return (
     <>
       <main>
@@ -92,7 +116,7 @@ const Profil = () => {
                 >
                   <div className="container">
                     <h4 className="fw-bold">Detail Profil</h4>
-                    <form>
+                    <form ref={form}>
                       <p>Foto Profil</p>
                       <div className="row align-items-center g-3">
                         <div className="img col-md-3">
@@ -100,7 +124,9 @@ const Profil = () => {
                             src={data?.picture}
                             alt="Foto Profil"
                             width="100px"
+                            height="100px"
                             className="d-inline-block align-text-top rounded-circle"
+                            ref={imageProfile}
                           />
                         </div>
                         <div className="button px-3 col-md-9">
@@ -110,10 +136,21 @@ const Profil = () => {
                               backgroundColor: "#005387",
                               color: "#fff",
                             }}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              editUploadImage.current.click();
+                            }}
                           >
                             Ganti Foto
                           </button>
                         </div>
+                        <input
+                          type="file"
+                          className="d-none form-control"
+                          ref={editUploadImage}
+                          onChange={() => previewImage()}
+                          name="picture"
+                        />
                       </div>
                       <div className="row container mt-3 g-2">
                         <div className="col-md">
@@ -184,8 +221,11 @@ const Profil = () => {
                               name="school"
                               id="sekolah"
                               className="form-select form-select mb-3"
+                              aria-label="Default select example"
                             >
-                              <option selected>--Pilih Sekolah--</option>
+                              <option defaultValue={data?.school?.id}>
+                                {data?.school?.name}
+                              </option>
                               {isloading &&
                                 school?.map((item, index) => {
                                   return (
@@ -202,31 +242,21 @@ const Profil = () => {
                         <div className="col-md">
                           <div className="mb-3">
                             <label
-                              htmlFor="jenis-kelamin"
+                              htmlFor="gender"
                               className="form-label fw-semibold"
                             >
                               Jenis Kelamin
                             </label>
-                            <div className="radio">
-                              <input
-                                type="radio"
-                                id="laki-laki"
-                                name="jenis-kelamin"
-                                value="laki-laki"
-                              />
-                              <label htmlFor="laki-laki" className="px-2">
-                                Laki-laki
-                              </label>
-                              <input
-                                type="radio"
-                                id="perempuan"
-                                name="jenis-kelamin"
-                                value="perempuan"
-                              />
-                              <label htmlFor="perempuan" className="ps-2">
-                                Perempuan
-                              </label>
-                            </div>
+                            <select
+                              name="gender"
+                              id="gender"
+                              className="form-select form-select mb-3"
+                              aria-label="Default select example"
+                            >
+                              <option>{data?.gender}</option>
+                              <option value="Laki-laki">Laki-laki</option>
+                              <option value="Perempuan">Perempuan</option>
+                            </select>
                           </div>
                         </div>
                         <div className="col-md">
@@ -238,12 +268,11 @@ const Profil = () => {
                               No. Telp
                             </label>
                             <input
-                              type="tel"
-                              pattern="[0-9]{12}"
+                              type="number"
                               className="form-control"
                               id="no-telp"
                               name="telp"
-                              required
+                              defaultValue={data?.telp}
                             />
                           </div>
                         </div>
@@ -262,6 +291,7 @@ const Profil = () => {
                               className="form-control"
                               id="tanggal-lahir"
                               name="birthDate"
+                              defaultValue={data?.birthdate}
                             />
                           </div>
                         </div>
@@ -271,7 +301,7 @@ const Profil = () => {
                           type="submit"
                           className="btn"
                           style={{ backgroundColor: "#005387", color: "#fff" }}
-                          // onClick={handleSubmit}
+                          onClick={handleSubmit}
                         >
                           Simpan
                         </button>
