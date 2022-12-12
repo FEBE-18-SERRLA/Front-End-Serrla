@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export const SIGN_UP = "SIGN_UP";
 export const SIGN_IN_START = "SIGN_IN_START";
@@ -12,6 +13,7 @@ export const postSignUpSuccess = (user) => {
     user,
   };
 };
+
 export const signInStart = () => {
   return {
     type: SIGN_IN_START,
@@ -83,8 +85,23 @@ export const signIn = (email, password) => {
           .then((res) => {
             dispatch(postSignInSuccess(token, res.data.data));
           });
+        Swal.fire({
+          icon: "success",
+          title: "Login Success",
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(() => {
+          window.location.href = "/";
+        });
       })
-      .catch((err) => dispatch(postSignInFailure(err.response.data.message)));
+      .catch((err) => {
+        dispatch(postSignInFailure(err));
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Wrong Email or Password!",
+        });
+      });
   };
 };
 
