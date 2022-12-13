@@ -2,6 +2,7 @@ import {
   FETCH_START,
   GET_EVENTS,
   GET_EVENT_FAVORITES,
+  SEARCH_EVENT,
 } from "Redux/Actions/event";
 
 const initialState = {
@@ -31,6 +32,12 @@ export default function eventReducer(state = initialState, action) {
         eventFavorites: action.eventFavorites,
         like: true,
         isloading: false,
+      };
+
+    case SEARCH_EVENT:
+      return {
+        ...state,
+        events: action.search,
       };
 
     default:
