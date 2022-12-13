@@ -290,6 +290,7 @@ const Profil = () => {
                               className="form-control"
                               id="tanggal-lahir"
                               name="birthDate"
+                              min="2000-01-01"
                               required
                               defaultValue={data?.birthdate}
                             />

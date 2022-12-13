@@ -26,7 +26,7 @@ const Katasandi = () => {
                   style={{ backgroundColor: "#FDFAF3" }}
                 >
                   <div className="container">
-                    <h4 className="fw-bold">Ubah Katasandi</h4>
+                    <h4 className="fw-bold">Ubah Kata sandi</h4>
                     <form className="mt-3">
                       <div className="mb-3">
                         <label
@@ -39,7 +39,7 @@ const Katasandi = () => {
                           type="text"
                           className="form-control"
                           id="katasandi-lama"
-                          placeholder="Katasandi Lama"
+                          placeholder="Kata sandi Lama"
                         />
                       </div>
                       <div className="mb-3">
@@ -47,13 +47,13 @@ const Katasandi = () => {
                           for="katasandi-baru"
                           className="form-label fw-semibold"
                         >
-                          Katasandi Baru
+                          Kata sandi Baru
                         </label>
                         <input
                           type="text"
                           className="form-control"
                           id="katasandi-baru"
-                          placeholder="Katasandi Baru"
+                          placeholder="Kata sandi Baru"
                         />
                       </div>
                       <div className="mb-3">
@@ -61,13 +61,13 @@ const Katasandi = () => {
                           for="konfirmasi-katasandi"
                           className="form-label fw-semibold"
                         >
-                          Konfirmasi Katasandi
+                          Konfirmasi Kata sandi
                         </label>
                         <input
                           type="text"
                           className="form-control"
                           id="konfirmasi-katasandi"
-                          placeholder="Konfirmasi Katasandi"
+                          placeholder="Konfirmasi Kata sandi"
                         />
                       </div>
                       <div className="mb-3 text-end">

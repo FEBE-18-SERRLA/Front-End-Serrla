@@ -32,7 +32,7 @@ const AsideProfil = () => {
                   }
                 >
                   <MdVpnKey />
-                  <span className="text-dashboard ps-2">Katasandi</span>
+                  <span className="text-dashboard ps-2">Kata sandi</span>
                 </NavLink>
               </li>
             </ul>

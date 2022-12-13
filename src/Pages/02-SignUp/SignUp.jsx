@@ -109,18 +109,18 @@ const SignUp = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
                 <InputText
-                  valueLabel="Katasandi"
+                  valueLabel="Kata sandi"
                   valueFor="password"
                   type="password"
                   id="password"
                   name="password"
-                  placeholder="Masukkan Katasandi"
+                  placeholder="Masukkan Kata sandi"
                   minLength={8}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
                 <InputText
-                  valueLabel="Konfirmasi Katasandi"
+                  valueLabel="Konfirmasi Kata sandi"
                   valueFor="password2"
                   type="password"
                   id="password2"

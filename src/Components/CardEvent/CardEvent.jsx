@@ -2,7 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import module from "./CardEvent.module.css";
 
-const CardEvent = ({ image, title, date, location, onClick, childern }) => {
+const CardEvent = ({
+  image,
+  title,
+  date,
+  location,
+  onClick,
+  childern,
+  locationUrl,
+}) => {
   return (
     <>
       <div className="card">
@@ -21,12 +29,12 @@ const CardEvent = ({ image, title, date, location, onClick, childern }) => {
           </p>
           <div className="container-button-card d-flex justify-content-between">
             <a
-              href="https://serrum.id/"
+              href={locationUrl}
               className={`btn ${module["btn-card-event"]}`}
               target="_blank"
               rel="noreferrer"
             >
-              ikut
+              Detail Lokasi
             </a>
             <button className="btn btn-like" onClick={onClick}>
               {childern}

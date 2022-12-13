@@ -61,12 +61,12 @@ const SignIn = () => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <InputText
-                    valueLabel="Katasandi"
+                    valueLabel="Kata sandi"
                     valueFor="password"
                     type="password"
                     id="password"
                     name="password"
-                    placeholder="Masukkan Katasandi"
+                    placeholder="Masukkan Kata sandi"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
