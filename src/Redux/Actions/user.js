@@ -20,6 +20,6 @@ export const getUserByIdSuccess = (user) => {
 export const getAllUsers = () => {
   return async (dispatch) => {
     const response = await axios.get("https://serrla-api.up.railway.app/users");
-    dispatch(getAllUsersSuccess(response.data));
+    dispatch(getAllUsersSuccess(response.data.data));
   };
 };

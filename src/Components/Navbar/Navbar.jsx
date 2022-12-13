@@ -154,6 +154,14 @@ const Navbar = () => {
                   </li>
                   <li className="nav-item h5 m-0">
                     <NavLink
+                      to="/portfolio"
+                      className="nav-link nav-text fw-normal"
+                    >
+                      Portfolio
+                    </NavLink>
+                  </li>
+                  <li className="nav-item h5 m-0">
+                    <NavLink
                       to="/dashboard"
                       className="nav-link nav-text fw-normal"
                     >

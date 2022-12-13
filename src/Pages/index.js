@@ -15,3 +15,4 @@ export { default as Event } from "./13-EventPage/EventPage";
 export { default as EventFavorite } from "./14-EventFavorite/EventFavorite";
 export { default as Unauthorized } from "./15-Unauthorized/Unauthorized";
 export { default as NotFound } from "./16-NotFound/NotFound";
+export { default as Portfolio } from "./18-Portfolio/Portfolio";

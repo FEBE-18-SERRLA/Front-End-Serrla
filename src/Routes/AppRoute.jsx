@@ -22,6 +22,7 @@ import {
   EventFavorite,
   Unauthorized,
   NotFound,
+  Portfolio,
 } from "./../Pages";
 
 import PrivateRoutes from "./PrivateRoute";
@@ -53,6 +54,7 @@ const AppRouter = () => {
           <Route path="katasandi" element={<Katasandi />} />
         </Route>
         <Route path="/event" element={<Event />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Route>
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/sign-in" element={<SignIn />} />
