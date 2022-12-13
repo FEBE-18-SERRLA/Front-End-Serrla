@@ -4,6 +4,7 @@ export const FETCH_START = "FETCH_START";
 export const GET_EVENTS = "GET_EVENTS";
 export const GET_EVENT_FAVORITES = "GET_EVENT_FAVORITES";
 export const POST_EVENT_FAVORITES = "POST_EVENT_FAVORITES";
+export const SEARCH_EVENT = "SEARCH_EVENT";
 
 export const fetchStart = () => {
   return {
@@ -15,6 +16,13 @@ export const getEventsSuccess = (events) => {
   return {
     type: GET_EVENTS,
     events,
+  };
+};
+
+export const searchEvent = (search) => {
+  return {
+    type: SEARCH_EVENT,
+    search,
   };
 };
 
@@ -57,5 +65,14 @@ export const getEventFavorites = () => {
           console.log(error);
         });
     }
+  };
+};
+
+export const getSearchedEvent = (search) => {
+  return async (dispatch) => {
+    const searchEventData = await axios.get(
+      `https://serrla-api.up.railway.app/events/search?keyword=${search}`
+    );
+    dispatch(searchEvent(searchEventData.data.data));
   };
 };

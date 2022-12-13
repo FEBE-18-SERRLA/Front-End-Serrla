@@ -10,6 +10,7 @@ const CardEvent = ({
   onClick,
   childern,
   locationUrl,
+  time,
 }) => {
   return (
     <>
@@ -23,7 +24,10 @@ const CardEvent = ({
           <h5 className="card-title fw-semibold" style={{ fontSize: "18px" }}>
             {title}
           </h5>
-          <p className={`${module["date"]} mt-3`}>{date}</p>
+          <div className="d-flex justify-content-between mt-3">
+            <p className={`${module["date"]}`}>{date}</p>
+            <p className="text-end">{time}</p>
+          </div>
           <p className="pw-normal" style={{ fontSize: "18px" }}>
             {location}
           </p>
@@ -51,6 +55,7 @@ CardEvent.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
 };
 
 export default CardEvent;
