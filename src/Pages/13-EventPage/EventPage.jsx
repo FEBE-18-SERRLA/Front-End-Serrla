@@ -47,6 +47,7 @@ const EventPage = () => {
                   title={item.name}
                   date={item.date}
                   location={item.location}
+                  locationUrl={item.loc_url}
                   like={like}
                   onClick={() => handleClick(item.id)}
                   childern={<AiOutlineHeart className="fs-3" />}
