@@ -14,7 +14,6 @@ const Profil = () => {
   const { data } = useSelector((state) => state.user.user);
   const school = useSelector((state) => state.school.school.data);
   const [isloading, setIsloading] = useState(false);
-  const [selectedGender, setSelectedGender] = useState(data?.gender);
   const form = useRef(null);
   const editUploadImage = useRef(null);
   const imageProfile = useRef(null);
@@ -52,7 +51,7 @@ const Profil = () => {
             first_name: formData.firstName.value,
             last_name: formData.lastName.value,
             email: formData.email.value,
-            telp: formData.telp.value,
+            telp: Number(formData.telp.value),
             birthdate: formData.birthDate.value,
             picture: formData.picture.value,
             school_id: formData.school.value,
@@ -66,21 +65,19 @@ const Profil = () => {
           }
         )
         .then((res) => {
-          console.log(res.data);
+          Swal.fire({
+            icon: "success",
+            title: "Berhasil",
+            text: "Profil berhasil diubah",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          dispatch(getUserByIdSuccess(res.data));
         })
         .catch((err) => {
           console.log(err);
         });
     }
-    Swal.fire({
-      icon: "success",
-      title: "Berhasil",
-      text: "Profil berhasil diubah",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.reload();
-      }
-    });
   };
 
   const previewImage = () => {
@@ -223,7 +220,7 @@ const Profil = () => {
                               className="form-select form-select mb-3"
                               aria-label="Default select example"
                             >
-                              <option defaultValue={data?.school?.id}>
+                              <option value={data?.school_id}>
                                 {data?.school?.name}
                               </option>
                               {isloading &&
@@ -252,6 +249,7 @@ const Profil = () => {
                               id="gender"
                               className="form-select form-select mb-3"
                               aria-label="Default select example"
+                              required
                             >
                               <option>{data?.gender}</option>
                               <option value="Laki-laki">Laki-laki</option>
@@ -268,10 +266,11 @@ const Profil = () => {
                               No. Telp
                             </label>
                             <input
-                              type="number"
+                              type="string"
                               className="form-control"
                               id="no-telp"
                               name="telp"
+                              required
                               defaultValue={data?.telp}
                             />
                           </div>
@@ -291,6 +290,7 @@ const Profil = () => {
                               className="form-control"
                               id="tanggal-lahir"
                               name="birthDate"
+                              required
                               defaultValue={data?.birthdate}
                             />
                           </div>
