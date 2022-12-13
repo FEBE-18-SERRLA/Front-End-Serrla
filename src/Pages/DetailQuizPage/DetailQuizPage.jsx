@@ -218,7 +218,7 @@ function DetailQuizPage(title) {
                               onClick={() =>
                                 handleAnswerButtonClick(
                                   questions.data[currentQuestion].answer_key ===
-                                    ""
+                                    "b"
                                 )
                               }
                             >
